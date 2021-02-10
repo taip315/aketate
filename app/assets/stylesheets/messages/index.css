@@ -1,0 +1,115 @@
+.head-wrapper{
+  background-color: coral;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+}
+.head-left{
+  display: flex;
+  align-items: center;
+}
+
+.head-right{
+  display: flex;
+  align-items: center;
+}
+
+.logo{
+  margin: 5px;
+  margin-left: 20px;
+  background-color: dimgray;
+  padding: 5px 10px;
+}
+
+.user-info{
+  margin: 5px 20px 5px 5px;
+  background-color: dimgray;
+  padding: 5px 10px;
+}
+
+.log-out{
+  margin: 5px;
+  background-color: dimgray;
+  padding: 5px 10px;
+}
+
+.shoplist{
+  margin: 5px;
+  background-color: dimgray;
+  padding: 5px 10px;
+}
+
+.search{
+  margin: 5px;
+  background-color: dimgray;
+  padding: 5px 10px;
+}
+
+.main-wrapper{
+  background-color: darksalmon;
+  height: calc(100vh - 100px);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  overflow: scroll;
+}
+
+.message-wrapper{
+  width: 80%;
+  /* justify-content: center;
+  align-items: center;
+  background-color: dimgray;
+  width: 600px;
+  padding-top: 20px; */
+}
+
+.messages{
+  
+}
+
+.message{
+  background-color: gainsboro;
+  width: 90%;
+  height: 100px;
+  margin: 10px auto 10px auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-icon{
+  height: calc(100% - 20px);
+  width: 90px;
+  margin: 10px;
+  background-color: darkseagreen;
+}
+
+.message-content{
+  margin: 10px;
+  background-color: darkseagreen;
+  height: calc(100% - 20px);
+  width: calc(100% - 140px);
+}
+
+.message-information{
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-name{
+  padding: 5px;
+}
+
+.post-time{
+  padding: 5px;
+}
+
+.text{
+  padding: 5px;
+}
+
+.foot-wrapper{
+  background-color: deeppink;
+  height: 50px;
+  width: 100%;
+}
