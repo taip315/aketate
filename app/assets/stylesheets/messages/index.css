@@ -48,24 +48,19 @@
 
 .main-wrapper{
   background-color: darksalmon;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 70px);
   width: 100%;
+  overflow: scroll;
+  position: relative;
+}
+
+.message-foot{
   display: flex;
   justify-content: center;
-  overflow: scroll;
 }
 
 .message-wrapper{
   width: 80%;
-  /* justify-content: center;
-  align-items: center;
-  background-color: dimgray;
-  width: 600px;
-  padding-top: 20px; */
-}
-
-.messages{
-  
 }
 
 .message{
@@ -111,5 +106,8 @@
 .foot-wrapper{
   background-color: deeppink;
   height: 50px;
-  width: 100%;
+  width: 100vw;
+  position: absolute;
+  bottom: auto;
 }
+
