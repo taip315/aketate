@@ -1,0 +1,81 @@
+.head-wrapper{
+  background-color: coral;
+  display: flex;
+  justify-content: space-between;
+  height: 70px;
+  width: 100%;
+}
+.head-left{
+  display: flex;
+  align-items: center;
+}
+
+.head-right{
+  display: flex;
+  align-items: center;
+}
+
+.logo{
+  margin: 5px;
+  margin-left: 20px;
+  background-color: dimgray;
+  padding: 5px 10px;
+}
+
+.user-info{
+  margin: 5px 20px 5px 5px;
+  background-color: dimgray;
+  padding: 5px 10px;
+}
+
+.log-out{
+  margin: 5px;
+  background-color: dimgray;
+  padding: 5px 10px;
+}
+
+.main{
+  display: flex;
+  justify-content: space-between;
+}
+
+.main-content{
+  height: 100%;
+  width: 80%;
+}
+
+.main-wrapper{
+  background-color: darksalmon;
+  height: 100%;
+  min-height: calc(100vh - 120px);
+  width: 100%;
+  position: relative;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+
+}
+
+
+.user-icon{
+  height: calc(100% - 20px);
+  width: 90px;
+  margin: 10px;
+  background-color: darkseagreen;
+}
+
+.foot-wrapper{
+  background-color: deeppink;
+  height: 50px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+
+
+.side-bar{
+
+  width: 20%;
+  background-color: darkgray;
+  position: sticky;
+}
