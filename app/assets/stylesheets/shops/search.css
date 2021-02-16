@@ -1,0 +1,38 @@
+.shop-search-wrapper{
+  width: 60%;
+}
+
+.shop-content{
+  display: flex;
+  width: calc(100% - 110px);
+  margin: 10px 10px 10px 0;
+  justify-content: space-between;
+}
+
+.station-genre{
+  display: flex;
+}
+
+.follow-button{
+  background-color: coral;
+  margin: 20px;
+  padding: 10px;
+}
+
+.shop-name-search{
+  padding: 10px;
+}
+
+.station-search{
+  padding: 10px;
+}
+
+.genre-search{
+  padding: 10px;
+}
+
+.search-form{
+  text-align:  center;
+  padding: 10px 0;
+  margin-top: 10px;
+}

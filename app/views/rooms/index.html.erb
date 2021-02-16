@@ -1,0 +1,30 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+  <div class = "side-bar">
+    <a href = "/shops/search" class = "search">
+      <p>ショップを検索する</p>
+    </a>
+    <a href = "/shops/index" class = "shoplist">
+     <p>登録ショップリスト</p>
+    </a>
+  </div>
+  <div class = "main-content">
+    <div class = "main-wrapper">
+      <div class = "message-wrapper">
+          <% 10.times do  %>
+          <a href = "/rooms/show", class = "message">
+            <div class = "user-icon">画像</div>
+            <div class = "message-content">
+              <div class = "message-information">
+                <div class = "user-name">ユーザーネーム</div>
+                <div class = "post-time">投稿時刻</div>
+              </div>
+              <div class = "text">ここに最新の本文が入りますここに最新の本文が入りますここに最新の本文が入ります</div>
+            </div>
+          </a>
+          <% end %>
+        </div>
+      <%= render partial: "shared/footer" %>
+    </div>
+  </div>
+</div>

@@ -1,13 +1,14 @@
 .message-area{
   height: auto;
+  width: 100%;
   display: flex;
 }
 
 .message-area-center{
   height: auto;
-  width: 1800px;
+  width: 40%;
   background-color: floralwhite;
-  margin-top: 20px;
+  margin: 20px 0;
   padding-top: 20px;
   overflow: scroll;
 }
@@ -53,12 +54,12 @@
 
 .message-area-right{
   height: 100%;
-  width: 100%;
+  width: 30%;
 }
 
 .message-area-left{
   height: 100%;
-  width: 100%;
+  width: 30%;
 }
 
 .reservation-button{
