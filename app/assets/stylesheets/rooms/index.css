@@ -3,7 +3,7 @@
 }
 
 
-.shoplist{
+.side-bar-content{
   margin: 10px;
   background-color: dimgray;
   height: 80px;
@@ -15,24 +15,11 @@
   align-items: center;
 }
 
-.shoplist p{
+.side-bar-content p{
 font-size: large;
 }
 
-.search{
-  margin: 10px;
-  height: 80px;
-  width: auto;
-  background-color: dimgray;
-  padding: 5px 10px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
 
-.search p{
-font-size: large;
-}
 
 .message,.shops{
   background-color: gainsboro;

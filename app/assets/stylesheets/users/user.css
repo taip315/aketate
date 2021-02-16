@@ -1,0 +1,9 @@
+.user-following-wrapper{
+  width: 40%;
+}
+
+.user-following-wrapper h1{
+  height: 30px;
+  text-align: center;
+  padding-top: 30px;
+}
