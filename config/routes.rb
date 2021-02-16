@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :rooms do
     resources :messages
   end
+  resource :messages, only:[:new]
   resources :users, only: [:index,:show]
   resources :shops, only: [:index, :show] do
     collection do
