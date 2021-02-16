@@ -9,6 +9,15 @@ Rails.application.routes.draw do
     passwords:      'users/passwords',
     registrations:  'users/registrations'
   }
-  root to: "messages#index"
-  resources :messages
+
+  root to: "rooms#index"
+  resources :rooms do
+    resources :messages
+  end
+  resources :users, only: :show
+  resources :shops, only: [:index,:show] do
+    collection do
+      get :search
+    end
+  end
 end
