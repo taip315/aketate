@@ -1,10 +1,10 @@
 class ShopsController < ApplicationController
   def index
   end
-
-  def search
+  
+  def show
   end
 
-  def show
+  def search
   end
 end

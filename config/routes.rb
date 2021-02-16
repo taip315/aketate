@@ -15,7 +15,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :users, only: :show
-  resources :shops, only: [:index,:show] do
+  resources :shops, only: [:index, :show] do
     collection do
       get :search
     end
