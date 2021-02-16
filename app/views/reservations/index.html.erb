@@ -1,0 +1,12 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+    <div class = "main-wrapper">
+      <div class = "calendar-area">
+        <h1>予約一覧</h1>
+        <%= month_calendar do |date|%>
+        <%= date%>
+        <% end %>
+      </div> 
+      <%= render partial: "shared/footer" %>
+    </div>
+</div> 

@@ -12,6 +12,9 @@ Rails.application.routes.draw do
 
   root to: "rooms#index"
   resources :rooms do
+    collection do
+      get :index2
+    end
     resources :messages
   end
   resource :messages, only:[:new]
@@ -21,4 +24,6 @@ Rails.application.routes.draw do
       get :search
     end
   end
+  resources :reservations
+  # get 'rooms/#/index2',to: 'rooms#index2'
 end
