@@ -1,0 +1,70 @@
+.message-area{
+  height: auto;
+  width: 100%;
+  display: flex;
+}
+
+.message-area-center{
+  height: auto;
+  width: 40%;
+  background-color: floralwhite;
+  margin: 20px 0;
+  padding-top: 20px;
+  overflow: scroll;
+}
+
+.talk-left{
+  height: auto;
+  width: 300px;
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.speech-bubble-left{
+  height: 50px;
+  width: 20px;
+  background-color: gold;
+}
+
+.user-icon-min{
+  height: 50px;
+  width: 50px;
+  background-color: blue;
+}
+
+.talk-right{
+  height: auto;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.speech-bubble-right{
+  height: 50px;
+  width: 20px;
+  background-color: gold;
+}
+
+.talk-content{
+  height: auto;
+  width: 230px;
+  background-color: fuchsia;
+}
+
+.message-area-right{
+  height: 100%;
+  width: 30%;
+}
+
+.message-area-left{
+  height: 100%;
+  width: 30%;
+}
+
+.reservation-button{
+  margin: 50px 0px 0px 50px;
+  padding: 50px;
+  background-color: chartreuse;
+  position: fixed;
+}

@@ -1,0 +1,22 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+  <div class = "main-wrapper">
+    <div class = "user-following-wrapper">
+      <h1>フォロワー一覧</h1>
+      <% 10.times do  %>
+      <a href = "/users/show", class = "shops">
+        <div class = "user-icon">画像</div>
+        <div class = "shop-content">
+          <div class = "shop-info-search">
+            <div class = "shop-name-search">user名</div>
+          </div>
+          <div>
+            <div class = "follow-button">フォロー解除</div>
+          </div>
+        </div>
+      </a>
+      <% end %>
+    </div>
+    <%= render partial: "shared/footer" %>
+  </div>
+</div>

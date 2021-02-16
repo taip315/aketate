@@ -1,0 +1,18 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+    <div class = "main-wrapper">
+    <div class = "message-to-all-area">
+      <h1>一斉送信フォーム</h1>
+      <form action = "#" method = "post" class = "message-to-all">
+        <div>
+          <label>本文</label><br>
+          <textarea type ="text" placeholder = "タイトル" name = "title"></textarea>
+        </div>
+        <div>
+          <input type = "submit" name = "submit" value = "送信">
+        </div>
+      </form>
+    </div>
+      <%= render partial: "shared/footer" %>
+    </div>
+</div> 

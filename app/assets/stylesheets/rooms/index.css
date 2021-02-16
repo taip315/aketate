@@ -1,0 +1,65 @@
+.message-wrapper{
+  width: 70%;
+}
+
+
+.side-bar-content{
+  margin: 10px;
+  background-color: dimgray;
+  height: 80px;
+  width: auto;
+  padding: 5px 10px;
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-bar-content p{
+font-size: large;
+}
+
+
+
+.message,.shops{
+  background-color: gainsboro;
+  width: 90%;
+  height: 100px;
+  margin: 10px auto 10px auto;
+  display: flex;
+  justify-content: space-between;
+  text-decoration: none;
+}
+
+.message-content{
+  margin: 10px;
+  background-color: darkseagreen;
+  height: calc(100% - 20px);
+  width: calc(100% - 140px);
+}
+
+.message-information{
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-name{
+  padding: 5px;
+}
+
+.post-time{
+  padding: 5px;
+}
+
+.text{
+  padding: 5px;
+}
+
+.foot-wrapper{
+  background-color: deeppink;
+  height: 50px;
+  width: 100vw;
+  position: absolute;
+  bottom: auto;
+}
+

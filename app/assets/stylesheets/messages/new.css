@@ -1,0 +1,15 @@
+textarea{
+  resize: none;
+  height: 400px;
+  width: 400px;
+}
+
+.message-to-all-area h1{
+  height: 30px;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.message-to-all-area form{
+  margin-top: 30px;
+}
