@@ -1,3 +1,7 @@
+<%= render partial: "shared/header" %>
+
+<div class = "main">
+  <div class = "main-wrapper">
 <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -24,3 +28,6 @@
 <% end %>
 
 <%= render "shops/shared/links" %>
+<%= render partial: "shared/footer" %>
+  </div>
+</div>
