@@ -6,6 +6,13 @@ class DeviseCreateShops < ActiveRecord::Migration[6.0]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.string :name              , null: false
+      t.integer :postal           , null: false
+      t.integer :prefecture_id    , null: false
+      t.string :address           , null: false
+      t.string  :building
+      t.string :nearest_station   , null: false
+      t.integer :genre_id         , null: false
 
       ## Recoverable
       t.string   :reset_password_token
