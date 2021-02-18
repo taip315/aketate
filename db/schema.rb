@@ -31,7 +31,8 @@ ActiveRecord::Schema.define(version: 2021_02_16_063226) do
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
-    t.string "name", null: false
+    t.string "shop_name", null: false
+    t.string "administrator", null: false
     t.integer "postal", null: false
     t.integer "prefecture_id", null: false
     t.string "address", null: false
@@ -55,7 +56,7 @@ ActiveRecord::Schema.define(version: 2021_02_16_063226) do
     t.string "first_name", null: false
     t.string "last_kana", null: false
     t.string "first_kana", null: false
-    t.date "birthday"
+    t.date "birthday", null: false
     t.integer "gender_id", null: false
     t.string "phone_number"
     t.string "reset_password_token"
