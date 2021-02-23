@@ -8,12 +8,13 @@ class DeviseCreateShops < ActiveRecord::Migration[6.0]
       t.string :encrypted_password, null: false, default: ""
       t.string :shop_name         , null: false
       t.string :administrator     , null: false
-      t.integer :postal           , null: false
+      t.string :postal           , null: false
       t.integer :prefecture_id    , null: false
       t.string :address           , null: false
       t.string  :building
       t.string :nearest_station   , null: false
       t.integer :genre_id         , null: false
+      t.string :phone_number
 
       ## Recoverable
       t.string   :reset_password_token

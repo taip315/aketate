@@ -56,6 +56,10 @@
     <%= f.collection_select :gender_id, Gender.all, :id, :name %>
   </div>
 
+<div class="field">
+    <%= f.label :"電話番号（任意）" %><br />
+    <%= f.telephone_field :phone_number , maxlength: "13"%>
+  </div>
 
   
 

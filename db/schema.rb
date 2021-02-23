@@ -33,12 +33,13 @@ ActiveRecord::Schema.define(version: 2021_02_16_063226) do
     t.string "encrypted_password", default: "", null: false
     t.string "shop_name", null: false
     t.string "administrator", null: false
-    t.integer "postal", null: false
+    t.string "postal", null: false
     t.integer "prefecture_id", null: false
     t.string "address", null: false
     t.string "building"
     t.string "nearest_station", null: false
     t.integer "genre_id", null: false
+    t.string "phone_number"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

@@ -61,6 +61,11 @@
     <%= f.collection_select :genre_id, Genre.all, :id, :name %>
   </div>
 
+  <div class="field">
+    <%= f.label :"電話番号" %><br />
+    <%= f.telephone_field :phone_number , maxlength: "13"%>
+  </div>
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>
