@@ -5,4 +5,6 @@ class Genre < ActiveHash::Base
       {id: 7, name: '居酒屋'}, {id: 8, name: 'バー'}, {id: 9, name: 'ラーメン'},
       {id: 10, name: '定食'}
   ]
+  include ActiveHash::Associations
+  has_many :shops
 end

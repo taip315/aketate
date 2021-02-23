@@ -4,19 +4,33 @@
     <div class = "user-icon-show"></div>
     <div class = "user-data">
       <h3>shop名</h3>
-      <p>焼肉キング</p>
+      <p><%= current_shop.shop_name %></p>
       <br>
+      <h3>管理者</h3>
+      <p><%= current_shop.administrator %></p>
+      <br>
+
       <h3>メールアドレス</h3>
-      <p>yakiniku@yakiniku</p>
+      <p><%= current_shop.email %></p>
       <br>
+      <h3>住所</h3>
+      <p><%= current_shop.postal %></p>
+      <p>
+      <%= current_shop.prefecture[:name] %>
+      <%= current_shop.address%>
+      </p>
+      <p><%= current_shop.building %></p><br>
+
       <h3>電話番号</h3>
-      <p>03-1111-2222</p>
+      <p><%= current_shop.phone_number %></p>
       <br>
       <h3>ジャンル</h3>
-      <p>焼肉</p>
+      <p><%= current_shop.genre[:name] %></p>
       <br>
       <h3>最寄り駅</h3>
-      <p>新宿</p>
+      <p><%= current_shop.nearest_station %></p>
+      <%# <%= link_to "店舗情報を変更する", edit_shop_registration_path(current_shop.id) %> 
+
     </div>
   </div>
   <%= render partial: "shared/footer" %>
