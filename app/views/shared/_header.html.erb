@@ -3,7 +3,16 @@
     <a href = "/", class = "logo">ロゴ</a>
   </div>
   <div class = "head-right">
-    <a href = "#", class = "log-out">ログアウト</a>
+  <% if user_signed_in? %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log-out"%>
     <a href = "/users/show", class = "user-info">ユーザーネーム</a>
+  <% elsif shop_signed_in? %>
+    <%= link_to "ログアウト", destroy_shop_session_path, method: :delete, class: "log-out"%>
+    <a href = "/users/show", class = "user-info">ショップネーム</a>
+  <% else %>
+    <%= link_to "ユーザーとしてログイン", new_user_session_path, class: "log-out"%>
+    <%= link_to "ショップとしてログイン", new_shop_session_path, class: "log-out"%>
+    <a href = "/users/show", class = "user-info">ユーザーネーム</a>
+  <% end %>
   </div>
 </div>

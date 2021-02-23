@@ -1,6 +1,11 @@
-<h2>Log in</h2>
+<%= render partial: "shared/header" %>
+
+<div class = "main">
+  <div class = "main-wrapper">
+    <h2>Log in</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -24,3 +29,6 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+    <%= render partial: "shared/footer" %>
+  </div>
+</div>

@@ -4,6 +4,11 @@
   <%= render "users/shared/error_messages", resource: resource %>
 
   <div class="field">
+    <%= f.label :nickname %><br />
+    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  </div>
+  
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -20,6 +25,44 @@
     <%= f.label :password_confirmation %><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
+
+  <div class="field">
+    <%= f.label :"名字" %><br />
+    <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"名前" %><br />
+    <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"フリガナ（名字）" %><br />
+    <%= f.text_field :last_kana, autofocus: true, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"フリガナ（名前）" %><br />
+    <%= f.text_field :first_kana, autofocus: true, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"誕生日"%><br />
+    <%= f.date_select :birthday, start_year: 1930, end_year: 2021 , include_blank: "--" , use_month_numbers: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"性別" %><br />
+    <%= f.collection_select :gender_id, Gender.all, :id, :name %>
+  </div>
+
+<div class="field">
+    <%= f.label :"電話番号（任意）" %><br />
+    <%= f.telephone_field :phone_number , maxlength: "13"%>
+  </div>
+
+  
+
 
   <div class="actions">
     <%= f.submit "Sign up" %>

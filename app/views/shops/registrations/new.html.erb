@@ -21,6 +21,52 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+  <div class="field">
+    <%= f.label :"店舗名" %><br />
+    <%= f.text_field :shop_name, autofocus: true, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"管理者" %><br />
+    <%= f.text_field :administrator, autofocus: true, autocomplete: "name" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"郵便番号" %><br />
+    <%= f.text_field :postal, autofocus: true, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"都道府県" %><br />
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"住所" %><br />
+    <%= f.text_field :address, autofocus: true, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"建物名（任意）" %><br />
+    <%= f.text_field :building, autofocus: true, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"最寄り駅" %><br />
+    <%= f.text_field :nearest_station, autofocus: true, autocomplete: "on" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"ジャンル" %><br />
+    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :"電話番号" %><br />
+    <%= f.telephone_field :phone_number , maxlength: "13"%>
+  </div>
+
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
