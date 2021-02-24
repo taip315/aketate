@@ -4,31 +4,31 @@
     <div class = "user-icon-show"></div>
     <div class = "user-data">
       <h3>shop名</h3>
-      <p><%= current_shop.shop_name %></p>
+      <p><%= @shop.shop_name %></p>
       <br>
       <h3>管理者</h3>
-      <p><%= current_shop.administrator %></p>
+      <p><%= @shop.administrator %></p>
       <br>
 
       <h3>メールアドレス</h3>
-      <p><%= current_shop.email %></p>
+      <p><%= @shop.email %></p>
       <br>
       <h3>住所</h3>
-      <p><%= current_shop.postal %></p>
+      <p><%= @shop.postal %></p>
       <p>
-      <%= current_shop.prefecture[:name] %>
-      <%= current_shop.address%>
+      <%= @shop.prefecture[:name] %>
+      <%= @shop.address%>
       </p>
       <p><%= current_shop.building %></p><br>
 
       <h3>電話番号</h3>
-      <p><%= current_shop.phone_number %></p>
+      <p><%= @shop.phone_number %></p>
       <br>
       <h3>ジャンル</h3>
-      <p><%= current_shop.genre[:name] %></p>
+      <p><%= @shop.genre[:name] %></p>
       <br>
       <h3>最寄り駅</h3>
-      <p><%= current_shop.nearest_station %></p>
+      <p><%= @shop.nearest_station %></p>
       <%# <%= link_to "店舗情報を変更する", edit_shop_registration_path(current_shop.id) %> 
 
     </div>
