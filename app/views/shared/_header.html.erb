@@ -5,10 +5,10 @@
   <div class = "head-right">
   <% if user_signed_in? %>
     <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log-out"%>
-    <a href = "/users/show", class = "user-info">ユーザーネーム</a>
+    <%= link_to "#{current_user.nickname}", user_path(current_user.id),class: "user-info"%>
   <% elsif shop_signed_in? %>
     <%= link_to "ログアウト", destroy_shop_session_path, method: :delete, class: "log-out"%>
-    <a href = "/users/show", class = "user-info">ショップネーム</a>
+    <%= link_to "#{current_shop.shop_name}", shop_path(current_shop.id),class: "user-info"%>
   <% else %>
     <%= link_to "ユーザーとしてログイン", new_user_session_path, class: "log-out"%>
     <%= link_to "ショップとしてログイン", new_shop_session_path, class: "log-out"%>

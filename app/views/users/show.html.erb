@@ -3,20 +3,23 @@
   <div class = "user-information-area">
     <div class = "user-icon-show"></div>
     <div class = "user-data">
+      <h3>ニックネーム</h3>
+      <p><%= current_user.nickname%></p>
+      <br>
       <h3>名前</h3>
-      <p>山田たろう</p>
+      <p><%= current_user.last_name %> <%= current_user.first_name %></p>
       <br>
       <h3>メールアドレス</h3>
-      <p>abcde@abcde</p>
+      <p><%= current_user.email %></p>
       <br>
       <h3>電話番号</h3>
-      <p>090-0909-0909</p>
+      <p><%= current_user.phone_number %></p>
       <br>
       <h3>性別</h3>
-      <p>男</p>
+      <p><%= current_user.gender[:name]%></p>
       <br>
-      <h3>年齢</h3>
-      <p>26歳</p>
+      <h3>生年月日</h3>
+      <p><%= current_user.birthday %></p>
     </div>
   </div>
   <%= render partial: "shared/footer" %>
