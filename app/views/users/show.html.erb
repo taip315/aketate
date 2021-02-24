@@ -4,22 +4,24 @@
     <div class = "user-icon-show"></div>
     <div class = "user-data">
       <h3>ニックネーム</h3>
-      <p><%= current_user.nickname%></p>
+      <p><%= @user.nickname%></p>
       <br>
+      <% if @user.id == current_user.id %>
       <h3>名前</h3>
-      <p><%= current_user.last_name %> <%= current_user.first_name %></p>
+      <p><%= @user.last_name %> <%= @user.first_name %></p>
       <br>
       <h3>メールアドレス</h3>
-      <p><%= current_user.email %></p>
+      <p><%= @user.email %></p>
       <br>
       <h3>電話番号</h3>
-      <p><%= current_user.phone_number %></p>
+      <p><%= @user.phone_number %></p>
       <br>
       <h3>性別</h3>
-      <p><%= current_user.gender[:name]%></p>
+      <p><%= @user.gender[:name]%></p>
       <br>
       <h3>生年月日</h3>
-      <p><%= current_user.birthday %></p>
+      <p><%= @user.birthday %></p>
+      <% end %>
     </div>
   </div>
   <%= render partial: "shared/footer" %>
