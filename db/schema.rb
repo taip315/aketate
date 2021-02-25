@@ -24,8 +24,12 @@ ActiveRecord::Schema.define(version: 2021_02_16_063226) do
   end
 
   create_table "rooms", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "shop_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_rooms_on_shop_id"
+    t.index ["user_id"], name: "index_rooms_on_user_id"
   end
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -69,4 +73,6 @@ ActiveRecord::Schema.define(version: 2021_02_16_063226) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "rooms", "shops"
+  add_foreign_key "rooms", "users"
 end

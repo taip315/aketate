@@ -17,7 +17,10 @@ class User < ApplicationRecord
   validates :password,format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は英字と数字の両方を含めての入力が必要です"}
   validates :phone_number,format: {with: /\A\d{2,4}-\d{2,4}-\d{4}\z/}
 
+  has_many :rooms
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
 
+  
 end
