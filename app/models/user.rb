@@ -18,6 +18,8 @@ class User < ApplicationRecord
   validates :phone_number,format: {with: /\A\d{2,4}-\d{2,4}-\d{4}\z/}
 
   has_many :rooms
+  has_many :memberships, dependent: :destroy
+  has_many :follow_requests, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender

@@ -1,0 +1,2 @@
+module Users::MembershipHelper
+end

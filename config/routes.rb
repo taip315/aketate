@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :messages
   end
+
   resource :messages, only:[:new]
   resources :users
   resources :shops do
@@ -25,5 +26,8 @@ Rails.application.routes.draw do
     end
   end
   resources :reservations
-  # get 'rooms/#/index2',to: 'rooms#index2'
+
+  namespace :user do
+    
+  end
 end
