@@ -18,6 +18,8 @@ class Shop < ApplicationRecord
   validates :password,format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は英字と数字の両方を含めての入力が必要です"}
 
   has_many :rooms
+  has_many :memberships, dependent: :destroy
+  has_many :follow_requests, dependent: :destroy
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture

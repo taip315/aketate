@@ -8,7 +8,7 @@
     <%= link_to "#{current_user.nickname}", user_path(current_user.id),class: "user-info"%>
   <% elsif shop_signed_in? %>
     <%= link_to "ログアウト", destroy_shop_session_path, method: :delete, class: "log-out"%>
-    <%= link_to "#{current_shop.shop_name}", shop_path(current_shop.id),class: "user-info"%>
+    <%= link_to "#{current_shop.shop_name}", shops_shop_path(current_shop.id),class: "user-info"%>
   <% else %>
     <%= link_to "ユーザーとしてログイン", new_user_session_path, class: "log-out"%>
     <%= link_to "ショップとしてログイン", new_shop_session_path, class: "log-out"%>

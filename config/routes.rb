@@ -12,18 +12,32 @@ Rails.application.routes.draw do
 
   root to: "rooms#index"
   resources :rooms do
-    collection do
-      get :index2
-    end
     resources :messages
   end
-  resource :messages, only:[:new]
-  resources :users
-  resources :shops do
-    collection do
-      get :search
+  namespace :users do
+    resources :users do
+      resources :memberships, only: [:index,:destroy]
+    end
+    resources :shops do
+      collection do
+        get :search
+      end
+      resources :follow_requests, only: [:create, :destroy]
     end
   end
+
+  namespace :shops do
+    resources :shops do
+      resources :memberships
+      post '/follow_requests/:id' => 'follow_requests#allow', as: 'allow'
+      resources :follow_requests
+      resources :users, only:[:index,:show]
+    end
+  end
+  resources :messages, only:[:new]
+  resources :users
+  
   resources :reservations
-  # get 'rooms/#/index2',to: 'rooms#index2'
+
+  
 end

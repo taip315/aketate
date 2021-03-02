@@ -2,12 +2,8 @@
 <div class = "main">
 <% if user_signed_in? %>
   <div class = "side-bar">
-    <a href = "/shops/search" class = "side-bar-content">
-      <p>ショップを検索する</p>
-    </a>
-    <a href = "/shops/#/index" class = "side-bar-content">
-     <p>登録ショップリスト</p>
-    </a>
+    <%= link_to "ショップを検索する", search_users_shops_path, class: "side-bar-content" %>
+    <%= link_to "登録ショップリスト", users_user_memberships_path(current_user.id), class: "side-bar-content" %>
     <a href = "/reservations/#/index" class = "side-bar-content">
      <p>予約一覧</p>
     </a>
@@ -33,12 +29,12 @@
     <a href = "/messages/new" class = "side-bar-content">
       <p>一斉送信</p>
     </a>
-    <a href = "/users/#/index" class = "side-bar-content">
-     <p>登録ユーザーリスト</p>
-    </a>
+    <%= link_to "フォロワー一覧", shops_shop_memberships_path(current_shop.id), class: "side-bar-content"%>
     <a href = "/reservations/#/index" class = "side-bar-content">
      <p>予約一覧</p>
     </a>
+    <%= link_to "フォローリクエスト一覧", shops_shop_follow_requests_path(current_shop.id), class: "side-bar-content" %>
+
   </div>
   <div class = "main-content">
     <div class = "main-wrapper">

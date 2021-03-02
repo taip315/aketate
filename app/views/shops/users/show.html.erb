@@ -1,0 +1,14 @@
+<%= render partial: "shared/header" %>
+<div class = "main-wrapper">
+  <div class = "user-information-area">
+    <div class = "user-icon-show"></div>
+    <div class = "user-data">
+      <h3>ニックネーム</h3>
+      <p><%= @user.nickname%></p>
+      <br>
+      <h3>性別</h3>
+      <p><%= @user.gender[:name]%></p>
+    </div>
+  </div>
+  <%= render partial: "shared/footer" %>
+</div>

@@ -1,0 +1,36 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+    <div class = "main-wrapper">
+      <div class = "shop-search-wrapper">
+        <form action = "/shops/search" method = "get" class = "search-form">
+          <input type ="search" placeholder = "検索したいワードを入れてください" name = "search">
+          <input type = "submit" name = "submit" value = "検索">
+        </form>
+        <% @shops.each do |shop|  %>
+        <div class = "shops">
+          <a href = "/shops/<%=shop.id%>" ></a>
+          <div class = "user-icon">画像</div>
+          <div class = "shop-content">
+            <div class = "shop-info-search">
+              <div class = "shop-name-search"><%= shop.shop_name%></div>
+              <div class = "station-genre">
+                <div class = "station-search"><%= shop.nearest_station%></div>
+                <div class = "genre-search"><%= shop.genre.name%></div>
+              </div>
+            </div>
+            <div class = "follow-button-area">
+            <% if current_user.already_requested?(shop) %>
+              <%= link_to "リクエスト取消", users_shop_follow_request_path(shop.id, FollowRequest.find_by(user_id: current_user.id, shop_id: shop.id).id), method: :delete, class: "follow-button" %>
+            <% elsif current_user.already_followed?(shop) %>
+              <%= link_to "フォローを取消", users_user_memberships_path(shop.id, Membership.find_by(user_id: current_user.id, shop_id: shop.id).id), method: :delete, class: "follow-button" %>
+            <% else %>
+              <%= link_to "フォローする", users_shop_follow_requests_path(shop_id: shop.id), method: :post, class: "follow-button" %>
+            <% end %>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+      <%= render partial: "shared/footer" %>
+    </div>
+</div>
