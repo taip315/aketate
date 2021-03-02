@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :messages
   end
   namespace :users do
+    resources :users
     resources :shops do
       resources :follow_requests, only: [:create, :destroy]
     end
@@ -28,6 +29,7 @@ Rails.application.routes.draw do
       resources :memberships
       post '/follow_requests/:id' => 'follow_requests#allow', as: 'allow'
       resources :follow_requests
+      resources :users, only:[:index,:show]
     end
   end
   resources :messages, only:[:new]

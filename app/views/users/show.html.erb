@@ -6,8 +6,22 @@
       <h3>ニックネーム</h3>
       <p><%= @user.nickname%></p>
       <br>
+      <% if @user.id == current_user.id %>
+      <h3>名前</h3>
+      <p><%= @user.last_name %> <%= @user.first_name %></p>
+      <br>
+      <h3>メールアドレス</h3>
+      <p><%= @user.email %></p>
+      <br>
+      <h3>電話番号</h3>
+      <p><%= @user.phone_number %></p>
+      <br>
       <h3>性別</h3>
       <p><%= @user.gender[:name]%></p>
+      <br>
+      <h3>生年月日</h3>
+      <p><%= @user.birthday %></p>
+      <% end %>
     </div>
   </div>
   <%= render partial: "shared/footer" %>

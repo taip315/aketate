@@ -31,12 +31,12 @@
     <a href = "/messages/new" class = "side-bar-content">
       <p>一斉送信</p>
     </a>
-    <a href = "/users/#/index" class = "side-bar-content">
-     <p>登録ユーザーリスト</p>
-    </a>
+    <%= link_to "フォロワー一覧", shops_shop_memberships_path(current_shop.id), class: "side-bar-content"%>
     <a href = "/reservations/#/index" class = "side-bar-content">
      <p>予約一覧</p>
     </a>
+    <%= link_to "フォローリクエスト一覧", shops_shop_follow_requests_path(current_shop.id), class: "side-bar-content" %>
+
   </div>
   <div class = "main-content">
     <div class = "main-wrapper">

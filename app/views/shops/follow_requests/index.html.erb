@@ -1,0 +1,13 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+    <div class = "main-wrapper">
+      <div>
+        <% @follow_requests.each do |request| %>
+          <%= request.user[:nickname] %>
+          <%= link_to "承認する", shops_shop_allow_path(current_shop.id,request.id), method: :post %>
+          <%= link_to "拒否する", shops_shop_follow_request_path(current_shop.id,request.id), method: :delete%>
+        <% end %>
+      </div>
+      <%= render partial: "shared/footer" %>
+    </div>
+</div>
