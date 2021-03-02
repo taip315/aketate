@@ -4,6 +4,8 @@ class CreateFollowRequests < ActiveRecord::Migration[6.0]
       t.references :user, null: false, foreign_key: false
       t.references :shop, null: false, foreign_key: false
       t.timestamps
+
+      t.index [:user_id, :shop_id], unique: true
     end
   end
 end
