@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :users
     resources :shops do
+      resources :membership, only: :destroy
       resources :follow_requests, only: [:create, :destroy]
     end
   end

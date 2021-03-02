@@ -28,5 +28,9 @@ class User < ApplicationRecord
     self.follow_requests.exists?(shop_id: shop.id)
   end
 
+  def already_followed?(shop)
+    self.memberships.exists?(shop_id: shop.id)
+  end
+
   
 end

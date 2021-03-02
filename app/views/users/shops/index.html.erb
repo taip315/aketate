@@ -18,6 +18,8 @@
             <div class = "follow-button-area">
             <% if current_user.already_requested?(shop) %>
               <%= link_to "リクエスト取消", users_shop_follow_request_path(shop.id, FollowRequest.find_by(user_id: current_user.id, shop_id: shop.id).id), method: :delete, class: "follow-button" %>
+            <% elsif current_user.already_followed?(shop) %>
+              <%= link_to "フォローを取消", users_shop_membership_path(shop.id, Membership.find_by(user_id: current_user.id, shop_id: shop.id).id), method: :delete, class: "follow-button" %>
             <% else %>
               <%= link_to "フォローする", users_shop_follow_requests_path(shop_id: shop.id), method: :post, class: "follow-button" %>
             <% end %>
