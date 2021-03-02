@@ -13,14 +13,16 @@
   display: flex;
 }
 
-.follow-button{
+.shops a.follow-button{
   background-color: coral;
   margin: 20px;
   padding: 10px;
+  position: relative;
 }
 
 .shop-name-search{
   padding: 10px;
+
 }
 
 .station-search{

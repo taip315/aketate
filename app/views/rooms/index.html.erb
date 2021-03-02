@@ -2,12 +2,10 @@
 <div class = "main">
 <% if user_signed_in? %>
   <div class = "side-bar">
-    <a href = "/shops/search" class = "side-bar-content">
+    <a href = "users/shops/search" class = "side-bar-content">
       <p>ショップを検索する</p>
     </a>
-    <a href = "/shops/#/index" class = "side-bar-content">
-     <p>登録ショップリスト</p>
-    </a>
+    <%= link_to "登録ショップリスト", users_shops_path,class: "side-bar-content" %>
     <a href = "/reservations/#/index" class = "side-bar-content">
      <p>予約一覧</p>
     </a>
