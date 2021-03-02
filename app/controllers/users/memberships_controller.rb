@@ -1,4 +1,8 @@
 class Users::MembershipsController < ApplicationController
+  def index
+    @memberships = current_user.memberships.all
+  end
+  
   def destroy
     membership = Membership.find(params:id)
     membership.destroy

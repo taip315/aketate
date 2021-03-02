@@ -15,18 +15,19 @@ Rails.application.routes.draw do
     resources :messages
   end
   namespace :users do
-    resources :users
+    resources :users do
+      resources :memberships, only: [:index,:destroy]
+    end
     resources :shops do
-      resources :membership, only: :destroy
+      collection do
+        get :search
+      end
       resources :follow_requests, only: [:create, :destroy]
     end
   end
 
   namespace :shops do
     resources :shops do
-      collection do
-        get :search
-      end
       resources :memberships
       post '/follow_requests/:id' => 'follow_requests#allow', as: 'allow'
       resources :follow_requests
