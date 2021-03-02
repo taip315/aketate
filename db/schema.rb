@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_065455) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_follow_requests_on_shop_id"
+    t.index ["user_id", "shop_id"], name: "index_follow_requests_on_user_id_and_shop_id", unique: true
     t.index ["user_id"], name: "index_follow_requests_on_user_id"
   end
 
@@ -27,6 +28,7 @@ ActiveRecord::Schema.define(version: 2021_02_26_065455) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["shop_id"], name: "index_memberships_on_shop_id"
+    t.index ["user_id", "shop_id"], name: "index_memberships_on_user_id_and_shop_id", unique: true
     t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
