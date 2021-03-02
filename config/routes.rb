@@ -27,7 +27,17 @@ Rails.application.routes.draw do
   end
   resources :reservations
 
-  namespace :user do
-    
+  namespace :users do
+    resources :shops, only:[:show] do
+      resources :follow_requests, only: [:create, :destroy]
+    end
+  end
+
+  namespace :shops do
+    resources :shops do
+      resources :memberships
+      post '/follow_requests/:id' => 'follow_requests#allow', as: 'allow'
+      resources :follow_requests
+    end
   end
 end

@@ -24,5 +24,9 @@ class User < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
 
+  def already_requested?(shop)
+    self.follow_requests.exists?(shop_id: shop.id)
+  end
+
   
 end
