@@ -19,6 +19,9 @@
 
 .inner-post-area{
   margin: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 
@@ -29,3 +32,4 @@
   background-color: cadetblue;
   float: left;
 }
+
