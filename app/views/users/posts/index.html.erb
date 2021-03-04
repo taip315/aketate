@@ -1,0 +1,17 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+  <div class = "side-bar">
+    <%= link_to "ショップを検索する", search_users_shops_path, class: "side-bar-content" %>
+    <%= link_to "登録ショップリスト", users_user_memberships_path(current_user.id), class: "side-bar-content" %>
+    <a href = "/reservations/#/index" class = "side-bar-content">
+     <p>予約一覧</p>
+    </a>
+  </div>
+  <div class = "main-content">
+    <div class = "main-wrapper">
+      
+       
+      <%= render partial: "shared/footer" %>
+    </div>
+  </div>
+</div>

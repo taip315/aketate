@@ -1,6 +1,15 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_any!
 
+  def after_sign_in_path_for(resource)
+    case resource
+    when User
+      users_posts_path
+    when Shop
+      shops_posts_path
+    end
+  end
+
   private
   def authenticate_any!
     unless shop_signed_in?
