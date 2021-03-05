@@ -3,6 +3,8 @@ class Shops::PostsController < ApplicationController
     if user_signed_in?
       redirect_to users_posts_path
     end
+  
+    @posts = Post.includes(:shop)
   end
 
   def new
@@ -10,9 +12,8 @@ class Shops::PostsController < ApplicationController
   end
 
   def create
-    @shop = Shop.find(current_shop.id)
     @post = Post.new(post_params)
-    if @post.save!
+    if @post.save
       redirect_to root_path
     else
       render 'new'

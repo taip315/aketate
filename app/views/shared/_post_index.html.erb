@@ -3,13 +3,15 @@
   </div>
   <div class = "posts-area">
     <div class = "inner-post-area">
-    <% 10.times do %>
+    <% posts.each do |post|%>
       <div class = "post">
         <div class = "post-image"></div>
         <div class = "post-contents">
-          <p class = "wine-name">お酒の名前が入ります</p>
+          <p class = "wine-name"><%= post.wine_name %></p>
           <p class = "open-date">開栓日が入ります</p>
-          <p class = "shop-name">お店の名前が入ります</p>
+          <% unless shop_signed_in? %>
+          <p class = "shop-name"><%= post.shop[:shop_name] %></p>
+          <% end %>
         </div>
       </div>
     <% end %>
