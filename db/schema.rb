@@ -48,7 +48,7 @@ ActiveRecord::Schema.define(version: 2021_03_03_042317) do
     t.string "wine_name", null: false
     t.text "content", null: false
     t.integer "price", null: false
-    t.integer "open_date_id", null: false
+    t.date "open_date", null: false
     t.integer "wine_genre_id", null: false
     t.bigint "shop_id", null: false
     t.boolean "sold_out", null: false
