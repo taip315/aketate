@@ -20,7 +20,6 @@ class User < ApplicationRecord
   has_many :rooms
   has_many :memberships, dependent: :destroy
   has_many :follow_requests, dependent: :destroy
-  has_many :posts
   has_many :comments
 
   extend ActiveHash::Associations::ActiveRecordExtensions
