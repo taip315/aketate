@@ -11,21 +11,26 @@
         <p class = "wine-genre">ジャンル : <%= @post.wine_genre[:name] %></p>
         <p class = "open-date">開栓 : <%= time_ago_in_words(@post.open_date)%>前</p>
         <p class = "wibe-pruce">価格 : <%= @post.price%>円</p>
-        <p class = "post-content">説明文 :</br><%= @post.content%></p>
-        <% unless shop_signed_in? %>
+        <% if user_signed_in? %>
         <p class = "shop-name"><%= @post.shop[:shop_name] %></p>
         <% end %>
+        <p class = "post-content">説明文 :</br><%= @post.content%></p>
+        
       </div>
     </div>
     <div class = "post-area-right">
+      <% if user_signed_in? %>
       <div class = "reservation-button">
         予約する
       </div>
+      <% end %>
+      <% if shop_signed_in? %>
       <div class = "edit-destroy-button">
         <h3>投稿を</h3>
         <%= link_to "編集する", edit_shops_post_path(@post.id) %>
         <%= link_to "削除する", shops_post_path(@post.id), method: :delete %>
       </div>
+      <% end %>
     </div>
   </div>
   <%= render partial: "shared/footer" %>

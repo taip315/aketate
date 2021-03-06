@@ -55,7 +55,9 @@ class Shops::PostsController < ApplicationController
   end
 
   def ensure_correct_shop
-    if current_shop.id != @post.shop_id 
+    if user_signed_in?
+      true
+    elsif  current_shop.id != @post.shop_id 
         redirect_to root_path
     end
   end

@@ -12,7 +12,7 @@
             <p class = "wine-name"><%= post.wine_name %></p>
             <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
             <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
-            <% unless shop_signed_in? %>
+            <% if user_signed_in? %>
             <p class = "shop-name"><%= post.shop[:shop_name] %></p>
             <% end %>
           </div>
