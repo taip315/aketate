@@ -9,7 +9,28 @@
   </div>
   <div class = "main-content">
     <div class = "main-wrapper">
-      <%= render partial: "shared/post_index"%>
+      <div class = "post-wrapper">
+  <div class = "post-header">
+  </div>
+  <div class = "posts-area">
+    <div class = "inner-post-area">
+    <% @posts.each do |post|%>
+        <div class = "post">
+          <a href = "/shops/posts/<%= post.id%>"></a>
+          <div class = "post-image"></div>
+          <div class = "post-contents">
+            <p class = "wine-name"><%= post.wine_name %></p>
+            <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
+            <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
+            <% unless shop_signed_in? %>
+            <p class = "shop-name"><%= post.shop[:shop_name] %></p>
+            <% end %>
+          </div>
+        </div>
+    <% end %>
+    </div>
+  </div>
+</div>>
       <%= render partial: "shared/footer" %>
     </div>
   </div>

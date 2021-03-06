@@ -19,6 +19,7 @@ class User < ApplicationRecord
 
   has_many :rooms
   has_many :memberships, dependent: :destroy
+  has_many :shops, through: :memberships
   has_many :follow_requests, dependent: :destroy
   has_many :comments
 

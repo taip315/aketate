@@ -1,4 +1,7 @@
 class Shops::PostsController < ApplicationController
+  before_action :get_post, only:[:show,:edit,:update,:destroy]
+  before_action :ensure_correct_shop, only:[:show,:edit,:update,:destroy]
+
   def index
     if user_signed_in?
       redirect_to users_posts_path
@@ -21,12 +24,12 @@ class Shops::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+  
   end
 
   def update
-    @post = Post.find(params[:id])
-    if @post.update(post_params)
+    post = Post.find(params[:id])
+    if post.update(post_params)
       redirect_to root_path
     else
       render 'edit'
@@ -39,12 +42,22 @@ class Shops::PostsController < ApplicationController
     redirect_to root_path
   end
   def show
-    @post = Post.find(params[:id])
+    
   end
 
   private
   def post_params
   params.require(:post).permit(:wine_name,:content,:price, :open_date, :wine_genre_id).merge(shop_id: current_shop.id, sold_out: false)
+  end
+
+  def get_post
+    @post = Post.find(params[:id])
+  end
+
+  def ensure_correct_shop
+    if current_shop.id != @post.shop_id 
+        redirect_to root_path
+    end
   end
 
 end
