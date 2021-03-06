@@ -1,4 +1,6 @@
-<mxfile host="65bd71144e" modified="2021-03-04T05:51:26.464Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="0bEgMdbRsbHko0LIUc0g" version="14.2.4" type="embed">
+
+<mxfile host="65bd71144e" modified="2021-03-03T03:47:18.023Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Code/1.52.1 Chrome/83.0.4103.122 Electron/9.3.5 Safari/537.36" etag="-1h3lMKVj3AVT8JkbHh9" version="14.2.4" type="embed">
+
     <diagram id="3dSBCUevgnGxwODY9Vac" name="Page-1">
         <mxGraphModel dx="856" dy="800" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
@@ -40,7 +42,8 @@
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-6" value="userトップページ" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="330" y="50" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="mxjQj-CQAJq9ulpeBBqR-7" value="・メッセージルーム一覧機能" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                <mxCell id="mxjQj-CQAJq9ulpeBBqR-7" value="・投稿一覧機能" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+
                     <mxGeometry x="330" y="120" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-44" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="mxjQj-CQAJq9ulpeBBqR-8" target="mxjQj-CQAJq9ulpeBBqR-18" edge="1">
@@ -81,7 +84,9 @@
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-8" value="shopトップページ" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="330" y="470" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="mxjQj-CQAJq9ulpeBBqR-10" value="・メッセージルーム一覧機能" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+
+                <mxCell id="mxjQj-CQAJq9ulpeBBqR-10" value="・投稿一覧機能" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+
                     <mxGeometry x="330" y="540" width="120" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="mxjQj-CQAJq9ulpeBBqR-11" target="mxjQj-CQAJq9ulpeBBqR-17" edge="1">
@@ -92,7 +97,17 @@
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-31" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="1" source="mxjQj-CQAJq9ulpeBBqR-11" target="mxjQj-CQAJq9ulpeBBqR-6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="mxjQj-CQAJq9ulpeBBqR-11" value="メッセージルーム&lt;br&gt;詳細画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+
+                <mxCell id="2" style="edgeStyle=elbowEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.004;entryY=0.179;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="mxjQj-CQAJq9ulpeBBqR-11" target="mxjQj-CQAJq9ulpeBBqR-50">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="610" y="270"/>
+                            <mxPoint x="620" y="270"/>
+                            <mxPoint x="620" y="300"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="mxjQj-CQAJq9ulpeBBqR-11" value="投稿&lt;br&gt;詳細画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="480" y="50" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-12" value="予約一覧画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
@@ -129,10 +144,8 @@
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-17" value="予約登録画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="630" y="50" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="mxjQj-CQAJq9ulpeBBqR-58" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="mxjQj-CQAJq9ulpeBBqR-18" target="mxjQj-CQAJq9ulpeBBqR-57">
-                    <mxGeometry relative="1" as="geometry"/>
-                </mxCell>
-                <mxCell id="mxjQj-CQAJq9ulpeBBqR-18" value="メッセージルーム&lt;br&gt;詳細画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="mxjQj-CQAJq9ulpeBBqR-18" value="投稿&lt;br&gt;詳細画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+
                     <mxGeometry x="480" y="470" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-49" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="mxjQj-CQAJq9ulpeBBqR-19" target="mxjQj-CQAJq9ulpeBBqR-24" edge="1">
@@ -150,7 +163,8 @@
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-21" value="フォロワー&lt;br&gt;一覧画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
                     <mxGeometry x="480" y="710" width="120" height="60" as="geometry"/>
                 </mxCell>
-                <mxCell id="mxjQj-CQAJq9ulpeBBqR-22" value="一斉送信画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                <mxCell id="mxjQj-CQAJq9ulpeBBqR-22" value="投稿作成画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+
                     <mxGeometry x="480" y="790" width="120" height="60" as="geometry"/>
                 </mxCell>
                 <mxCell id="mxjQj-CQAJq9ulpeBBqR-23" value="予約詳細画面" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">

@@ -10,13 +10,13 @@ Rails.application.routes.draw do
     registrations:  'users/registrations'
   }
 
-  root to: "rooms#index"
-  resources :rooms do
-    resources :messages
-  end
+  root to: "shops/posts#index"
+  
   namespace :users do
+    
     resources :users do
       resources :memberships, only: [:index,:destroy]
+      
     end
     resources :shops do
       collection do
@@ -24,9 +24,15 @@ Rails.application.routes.draw do
       end
       resources :follow_requests, only: [:create, :destroy]
     end
+    resources :posts do
+      resources :comments
+    end
   end
 
   namespace :shops do
+    resources :posts do
+      resources :comments
+    end
     resources :shops do
       resources :memberships
       post '/follow_requests/:id' => 'follow_requests#allow', as: 'allow'

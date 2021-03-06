@@ -1,0 +1,37 @@
+<%= render partial: "shared/header" %>
+<div class = "main-wrapper">
+  <div class = "post-area">
+    <div class = "post-area-left">
+      投稿詳細
+    </div>
+    <div class = "post-area-center">
+      <div class = "post-image-show"></div>
+      <div class = "post-contents">
+        <p class = "wine-name"><%= @post.wine_name %></p>
+        <p class = "wine-genre">ジャンル : <%= @post.wine_genre[:name] %></p>
+        <p class = "open-date">開栓 : <%= time_ago_in_words(@post.open_date)%>前</p>
+        <p class = "wibe-pruce">価格 : <%= @post.price%>円</p>
+        <% if user_signed_in? %>
+        <p class = "shop-name"><%= @post.shop[:shop_name] %></p>
+        <% end %>
+        <p class = "post-content">説明文 :</br><%= @post.content%></p>
+        
+      </div>
+    </div>
+    <div class = "post-area-right">
+      <% if user_signed_in? %>
+      <div class = "reservation-button">
+        予約する
+      </div>
+      <% end %>
+      <% if shop_signed_in? %>
+      <div class = "edit-destroy-button">
+        <h3>投稿を</h3>
+        <%= link_to "編集する", edit_shops_post_path(@post.id) %>
+        <%= link_to "削除する", shops_post_path(@post.id), method: :delete %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+  <%= render partial: "shared/footer" %>
+</div>

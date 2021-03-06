@@ -1,0 +1,2 @@
+module Shops::PostsHelper
+end

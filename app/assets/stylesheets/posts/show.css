@@ -1,0 +1,46 @@
+.post-area{
+  height: auto;
+  width: 100%;
+  display: flex;
+}
+
+.post-area-center{
+  height: auto;
+  width: 40%;
+  background-color: floralwhite;
+  margin: 20px 0;
+  padding-top: 20px;
+  overflow: scroll;
+}
+.post-area-right{
+  height: 100%;
+  width: 30%;
+  position: relative;
+}
+
+.post-area-left{
+  height: 100%;
+  width: 30%;
+}
+
+.reservation-button{
+  margin: 50px 0px 0px 50px;
+  padding: 50px;
+  background-color: chartreuse;
+  position: fixed;
+}
+
+.edit-destroy-button{
+  position: absolute;
+  left: 50px;
+  bottom: 100px;
+
+}
+
+.post-image-show{
+  
+  width: auto;
+  height: 50%;
+  margin: 50px;
+  background-color: darkblue;
+}
