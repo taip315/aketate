@@ -20,9 +20,7 @@
     </div>
     <div class = "post-area-right">
       <% if user_signed_in? %>
-      <div class = "reservation-button">
-        予約する
-      </div>
+      <%= link_to "予約する", new_users_shop_reservation_request_path(@post.shop_id),  class: "reservation-button" %>
       <% end %>
       <% if shop_signed_in? %>
       <div class = "edit-destroy-button">

@@ -1,0 +1,16 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+    <div class = "main-wrapper">
+      <div>
+        <% @reservation_requests.each do |request| %>
+          <%= request.user[:last_name] %><%= request.user[:first_name] %>
+          <%= request.start_time.mon %>月<%= request.start_time.mday %>日
+          <%= request.start_time.hour %>時<%= request.start_time.min %>分
+          <%= request.number_of_people %>人
+          <%= link_to "承認する", shops_shop_reserve_allow_path(current_shop.id,request.id), method: :post %>
+          <%= link_to "拒否する", shops_shop_reservation_request_path(current_shop.id,request.id), method: :delete%></br>
+        <% end %>
+      </div>
+      <%= render partial: "shared/footer" %>
+    </div>
+</div>

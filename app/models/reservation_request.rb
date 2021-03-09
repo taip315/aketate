@@ -1,4 +1,4 @@
-class Reservation < ApplicationRecord
+class ReservationRequest < ApplicationRecord
   belongs_to :user
   belongs_to :shop
 
@@ -6,7 +6,4 @@ class Reservation < ApplicationRecord
     validates :start_time
     validates :number_of_people
   end
-
-  
-
 end
