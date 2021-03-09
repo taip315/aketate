@@ -1,0 +1,25 @@
+<%= render partial: "shared/header" %>
+<div class = "main-wrapper">
+  <div class = "form-wrapper">
+    <%= form_with model:[:users,@shop, @request], local: true do |f| %>
+      
+      <div class = "field">
+      <%= f.label :start_time, '予約時間' %></br>
+      <%= f.datetime_field :start_time %>
+      </div>
+      <div class = "field">
+      <%= f.label :number_of_people, '人数' %></br>
+      <%= f.text_field :number_of_people %>人
+      </div>
+      <div class = "field">
+        <%= f.label :wine_genre, '備考' %></br>
+        <%= f.text_area :content %>
+      </div>
+      
+      <div class = "field">
+        <%= f.submit "送信"%>
+      </div>
+    <% end %>
+  </div>
+  <%= render partial: "shared/footer" %>
+</div>

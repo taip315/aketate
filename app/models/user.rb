@@ -22,6 +22,8 @@ class User < ApplicationRecord
   has_many :shops, through: :memberships
   has_many :follow_requests, dependent: :destroy
   has_many :comments
+  has_many :reservations, dependent: :destroy
+  has_many :reservation_reqests, dependent: :destroy
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender
