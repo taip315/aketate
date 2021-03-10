@@ -4,9 +4,7 @@
       <%= month_calendar  events: @reservations do |date, reservations|%>
         <%= date.month %>/<%= date.day %>
         <% reservations.each do |reservation| %>
-          
-          <%= reservation.user[:last_name] %>様  
-          <%= reservation.start_time.hour %>:<%= reservation.start_time.min %>
+          <%= link_to "#{reservation.user[:last_name]} 様 #{reservation.start_time.hour}:#{reservation.start_time.min} ", shops_reservation_path(reservation.id) %>
         <% end %>
       <% end %>
       <%= render partial: "shared/footer" %>

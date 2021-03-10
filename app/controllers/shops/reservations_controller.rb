@@ -5,4 +5,9 @@ class Shops::ReservationsController < ApplicationController
     
   end
 
+  def show
+    @reservation = Reservation.find(params[:id])
+  end
+
+
 end
