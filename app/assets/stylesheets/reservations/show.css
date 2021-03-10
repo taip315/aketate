@@ -1,0 +1,15 @@
+.reservation-table td{
+  padding: 20px 10px;
+  border: 1px solid black;
+}
+
+.reservation-table th{
+  padding: 20px 10px;
+  border: 1px solid black;
+}
+
+.reservation-table{
+  margin: 100px;
+  width: 60%;
+ 
+}

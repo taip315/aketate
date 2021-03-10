@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_03_042317) do
+ActiveRecord::Schema.define(version: 2021_03_08_034608) do
 
   create_table "comments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content", null: false
@@ -57,9 +57,28 @@ ActiveRecord::Schema.define(version: 2021_03_03_042317) do
     t.index ["shop_id"], name: "index_posts_on_shop_id"
   end
 
-  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+  create_table "reservation_requests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "shop_id", null: false
+    t.datetime "start_time", null: false
+    t.string "number_of_people", null: false
+    t.text "remarks"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_reservation_requests_on_shop_id"
+    t.index ["user_id"], name: "index_reservation_requests_on_user_id"
+  end
+
+  create_table "reservations", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "shop_id", null: false
+    t.datetime "start_time", null: false
+    t.string "number_of_people", null: false
+    t.text "remarks"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["shop_id"], name: "index_reservations_on_shop_id"
+    t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "shops", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|

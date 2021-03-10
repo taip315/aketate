@@ -1,0 +1,29 @@
+<%= render partial: "shared/header" %>
+<div class = "main">
+  <div class = "main-wrapper">
+    <table class = "reservation-table">
+      <tr>
+        <th>店舗名</th><td><%= @reservation.shop[:shop_name] %></td>
+      </tr>
+      <tr>
+        <th>予約日時</th><td><%= @reservation.start_time.month %>月<%= @reservation.start_time.day %>日</td>
+      </tr>
+      <tr>
+        <th>時刻</th><td><%= @reservation.start_time.hour %>時<%= @reservation.start_time.min %>分</td>
+      </tr>
+      
+      <tr>
+        <th>人数</th><td><%= @reservation.number_of_people %>名</td>
+        
+      </tr>
+      <tr>
+        <th>備考</th> <td><%= @reservation.remarks %></td>
+      </tr>
+      
+
+    
+
+    </table>
+    <%= render partial: "shared/footer" %>
+  </div>
+</div>

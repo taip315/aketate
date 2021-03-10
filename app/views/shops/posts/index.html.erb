@@ -2,11 +2,11 @@
 <div class = "main">
 <div class = "side-bar">
     <%= link_to "新規投稿", new_shops_post_path , class: "side-bar-content"%>
-    <%= link_to "フォロワー一覧", shops_shop_memberships_path(current_shop.id), class: "side-bar-content"%>
-    <a href = "/reservations/#/index" class = "side-bar-content">
-     <p>予約一覧</p>
-    </a>
     <%= link_to "フォローリクエスト一覧", shops_shop_follow_requests_path(current_shop.id), class: "side-bar-content" %>
+    <%= link_to "フォロワー一覧", shops_shop_memberships_path(current_shop.id), class: "side-bar-content"%>
+    <%= link_to "予約リクエスト一覧", shops_shop_reservation_requests_path(current_shop.id) , class: "side-bar-content"%>
+    <%= link_to "予約一覧", shops_reservations_path , class: "side-bar-content"%>
+    
 
   </div>
   <div class = "main-content">

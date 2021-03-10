@@ -22,6 +22,8 @@ class Shop < ApplicationRecord
   has_many :follow_requests, dependent: :destroy
   has_many :posts
   has_many :comments
+  has_many :reservations
+  has_many :reservation_requests
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
