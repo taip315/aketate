@@ -10,8 +10,9 @@ Rails.application.routes.draw do
     registrations:  'users/registrations'
   }
 
-  root to: "shops/posts#index"
+  root to: "posts#top"
   
+  get 'posts', to: 'posts#top'
   namespace :users do
     resources :users do
       resources :memberships, only: [:index,:destroy]
