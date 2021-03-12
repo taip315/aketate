@@ -1,16 +1,11 @@
 class Post < ApplicationRecord
-  with_options presence: true do 
-    validates :wine_name
-    validates :content
-    validates :price, numericality: true
-    validates :wine_genre_id, numericality: true
-    validates :open_date
-  end
+  
 
   
   belongs_to :shop
   has_many :comments
-
+  has_many :post_tag_relations
+  has_many :tags, through: :post_tag_relations
   
 
   extend ActiveHash::Associations::ActiveRecordExtensions

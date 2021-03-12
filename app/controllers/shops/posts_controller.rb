@@ -11,12 +11,13 @@ class Shops::PostsController < ApplicationController
   end
 
   def new
-    @post = Post.new
+    @post = PostsTag.new
   end
 
   def create
-    @post = Post.new(post_params)
-    if @post.save
+    @post = PostsTag.new(post_params)
+    if @post.valid? 
+      @post.save
       redirect_to root_path
     else
       render 'new'
@@ -47,7 +48,7 @@ class Shops::PostsController < ApplicationController
 
   private
   def post_params
-  params.require(:post).permit(:wine_name,:content,:price, :open_date, :wine_genre_id).merge(shop_id: current_shop.id, sold_out: false)
+  params.require(:posts_tag).permit(:wine_name,:content,:price, :open_date, :wine_genre_id, :name).merge(shop_id: current_shop.id, sold_out: false)
   end
 
   def get_post

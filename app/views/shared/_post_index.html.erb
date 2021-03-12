@@ -15,6 +15,9 @@
             <% if user_signed_in? %>
             <p class = "shop-name"><%= post.shop[:shop_name] %></p>
             <% end %>
+            <% post.tags.each do |tag| %>
+              <p class = "post-tags">#<%= tag.name %></p>
+            <% end %>
           </div>
         </div>
       <% end %>
