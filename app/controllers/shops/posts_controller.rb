@@ -1,5 +1,5 @@
 class Shops::PostsController < ApplicationController
-  before_action :get_post, only:[:show,:edit,:update,:destroy]
+  before_action :get_post, only:[:show,:destroy]
   before_action :ensure_correct_shop, only:[:show,:edit,:update,:destroy]
 
   def index
@@ -11,13 +11,14 @@ class Shops::PostsController < ApplicationController
   end
 
   def new
-    @post = PostsTag.new
+    @post_tag = PostsTag.new
   end
 
   def create
-    @post = PostsTag.new(post_params)
-    if @post.valid? 
-      @post.save
+    @post_tag = PostsTag.new(post_params)
+    tag_list = params[:posts_tag][:name].split(',')
+    if @post_tag.valid? 
+      @post_tag.save(tag_list)
       redirect_to root_path
     else
       render 'new'
@@ -25,12 +26,17 @@ class Shops::PostsController < ApplicationController
   end
 
   def edit
+    @post = Post.find(params[:id])
+    @post_tag = PostsTag.new(post: @post)
   
   end
 
   def update
-    post = Post.find(params[:id])
-    if post.update(post_params)
+    @post = Post.find(params[:id])
+    @post_tag = PostsTag.new(post_params,post: @post)
+    tag_list = params[:post][:name].split(',')
+    if @post_tag.valid?
+      @post_tag.save(tag_list)
       redirect_to root_path
     else
       render 'edit'
@@ -38,9 +44,8 @@ class Shops::PostsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:id])
-    post.destroy
-    redirect_to root_path
+    @post = Post.find(params[:id])
+    redirect_to root_path if @post.destroy
   end
   def show
     
@@ -56,6 +61,7 @@ class Shops::PostsController < ApplicationController
   end
 
   def ensure_correct_shop
+    @post = Post.find(params[:id])
     if user_signed_in?
       true
     elsif  current_shop.id != @post.shop_id 

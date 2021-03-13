@@ -15,6 +15,9 @@
         <p class = "shop-name"><%= @post.shop[:shop_name] %></p>
         <% end %>
         <p class = "post-content">説明文 :</br><%= @post.content%></p>
+         <% @post.tags.each do |tag| %>
+              <p class = "post-tags">#<%= tag.name %></p>
+            <% end %>
         
       </div>
     </div>
