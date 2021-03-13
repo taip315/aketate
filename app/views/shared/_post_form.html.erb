@@ -24,6 +24,10 @@
         <%= f.label :name, "タグ" %>
         <%= f.text_field :name, class:"input-tag" %>
       </div>
+      <div class="field">
+        <%= f.label :sold_out, "販売状況" %>
+        <%= f.radio_button :sold_out, false %>販売中<%= f.radio_button :sold_out, true %>売り切れ
+      </div>
       <div class = "field">
         <%= f.submit "送信"%>
       </div>

@@ -13,10 +13,13 @@
             <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
             <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
             <% if user_signed_in? %>
-            <p class = "shop-name"><%= post.shop[:shop_name] %></p>
+              <p class = "shop-name"><%= post.shop[:shop_name] %></p>
             <% end %>
             <% post.tags.each do |tag| %>
               <p class = "post-tags">#<%= tag.name %></p>
+            <% end %>
+            <% if post.sold_out %>
+              <p>SOLD OUT</p>
             <% end %>
           </div>
         </div>
