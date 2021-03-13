@@ -16,7 +16,7 @@ class Shops::PostsController < ApplicationController
 
   def create
     @post_tag = PostsTag.new(post_params)
-    tag_list = params[:posts_tag][:name].split(',')
+    tag_list = params[:post][:name].split(',')
     if @post_tag.valid? 
       @post_tag.save(tag_list)
       redirect_to root_path

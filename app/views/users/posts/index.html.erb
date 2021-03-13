@@ -27,6 +27,9 @@
              <% post.tags.each do |tag| %>
               <p class = "post-tags">#<%= tag.name %></p>
             <% end %>
+             <% if post.sold_out %>
+              <p>SOLD OUT</p>
+            <% end %>
           </div>
         </div>
     <% end %>
