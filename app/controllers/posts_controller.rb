@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
   skip_before_action :authenticate_any!
   before_action :redirect_to_toppage
+  
   def top
     @posts = Post.includes(:shop)
   end

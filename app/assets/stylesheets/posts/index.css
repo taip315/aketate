@@ -25,6 +25,15 @@
 
 }
 
+.hidden1{
+  display: flex;
+}
+
+.hidden2{
+  display: none;
+}
+
+
 .post{
   margin: 20px;
   height: 400px;
