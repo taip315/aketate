@@ -1,0 +1,58 @@
+<script>
+function abcd(value) {
+  let selectBoxA = document.getElementById("A")
+  let selectBoxB = document.getElementById("B")
+    if(value === "A"){
+      selectBoxA.setAttribute("style", "display:flex;")
+      selectBoxB.setAttribute("style", "display:none;")
+      // console.log("A")
+    }
+    else if(value === "B"){
+      selectBoxA.setAttribute("style", "display:none;")
+      selectBoxB.setAttribute("style", "display:flex;")
+      // console.log("B")
+    }
+  }
+</script>
+
+<%= render partial: "shared/header" %>
+<div class = "post-search-form">
+    <% search_form_for @q, url: search_users_posts_path do |f|%>
+      <%= f.label :tags_name_cont, 'タグ名' %>
+      <%= f.search_field :tags_name_cont %>
+      </br>
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
+<div class = "main">
+  <div class = "main-content">
+    <div class = "main-wrapper">
+      <div class = "post-wrapper">
+
+
+        <div class = "posts-area">
+          <div class = "inner-post-area" >
+          <% @posts.each do |post|%>
+              <div class = "post">
+                <a href = "/shops/posts/<%= post.id%>"></a>
+                <div class = "post-image"></div>
+                <div class = "post-contents">
+                  <p class = "wine-name"><%= post.wine_name %></p>
+                  <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
+                  <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
+                  <% unless shop_signed_in? %>
+                  <p class = "shop-name"><%= post.shop[:shop_name] %></p>
+                  <% end %>
+                </div>
+              </div>
+          <% end %>
+          </div>
+
+          
+        </div>
+      </div>
+      <%= render partial: "shared/footer" %>
+    </div>
+  </div>
+</div>
+

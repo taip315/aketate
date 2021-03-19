@@ -17,15 +17,12 @@ function abcd(value) {
 
 <%= render partial: "shared/header" %>
 <div class = "post-search-form">
-    <form action="cgi-bin/formmail.cgi" method="post">
-      投稿を検索する
-      <p>
-      タグ：<input type="text" name="name" size="40">
-      </p>
-      <p>
-      <input type="submit" value="送信"><input type="reset" value="リセット">
-      </p>
-    </form>
+    <%= search_form_for @q, url: search_users_posts_path do |f|%>
+      <%= f.label :tags_name_cont, 'タグ名' %>
+      <%= f.search_field :tags_name_cont %>
+      </br>
+      <%= f.submit '検索' %>
+    <% end %>
   </div>
 <div class = "main">
   <div class = "main-content">
