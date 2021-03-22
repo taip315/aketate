@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     registrations:  'users/registrations'
   }
 
-  root to: "shops/posts#index"
+  root to: "users/posts#top"
   
   namespace :users do
     resources :users do
@@ -24,14 +24,17 @@ Rails.application.routes.draw do
       resources :reservation_requests
     end
     resources :posts do
-      resources :comments
+      collection do
+        get 'search'
+        get 'top'
+      end
     end
     resources :reservations
   end
 
   namespace :shops do
     resources :posts do
-      resources :comments
+
     end
     resources :shops do
       resources :memberships

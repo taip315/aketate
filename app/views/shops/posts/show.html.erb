@@ -15,11 +15,17 @@
         <p class = "shop-name"><%= @post.shop[:shop_name] %></p>
         <% end %>
         <p class = "post-content">説明文 :</br><%= @post.content%></p>
+         <% @post.tags.each do |tag| %>
+          <p class = "post-tags">#<%= tag.name %></p>
+        <% end %>
+        <% if @post.sold_out %>
+          <p>SOLD OUT</p>
+        <% end %>
         
       </div>
     </div>
     <div class = "post-area-right">
-      <% if user_signed_in? %>
+      <% if user_signed_in? && @post.sold_out == false %>
       <%= link_to "予約する", new_users_shop_reservation_request_path(@post.shop_id),  class: "reservation-button" %>
       <% end %>
       <% if shop_signed_in? %>
