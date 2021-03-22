@@ -5,12 +5,11 @@ function abcd(value) {
     if(value === "A"){
       selectBoxA.setAttribute("style", "display:flex;")
       selectBoxB.setAttribute("style", "display:none;")
-      // console.log("A")
+
     }
     else if(value === "B"){
       selectBoxA.setAttribute("style", "display:none;")
       selectBoxB.setAttribute("style", "display:flex;")
-      // console.log("B")
     }
   }
 </script>
@@ -18,9 +17,10 @@ function abcd(value) {
 <%= render partial: "shared/header" %>
 <div class = "post-search-form">
     <%= search_form_for @q, url: search_users_posts_path do |f|%>
-      <%= f.label :tags_name_cont, 'タグ名' %>
-      <%= f.search_field :tags_name_cont %>
+      <%= f.label :tags_name_cont_all, 'タグ名' %>
+      <%= f.search_field :tags_name_cont_all %>
       </br>
+      
       <%= f.submit '検索' %>
     <% end %>
   </div>
