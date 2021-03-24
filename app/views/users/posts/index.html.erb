@@ -1,41 +1,51 @@
 <%= render partial: "shared/header" %>
-<div class = "main">
-  <div class = "side-bar">
-    <%= link_to "ショップを検索する", search_users_shops_path, class: "side-bar-content" %>
-    <%= link_to "登録ショップリスト", users_user_memberships_path(current_user.id), class: "side-bar-content" %>
-    <%= link_to "予約一覧", users_reservations_path, class: "side-bar-content" %>
+
+<div class = "post-search-form">
+  <h1>飲みたいお酒から店探しをしよう</h1>
+  <%= search_form_for @q, url: search_users_posts_path do |f|%>
+    <%= f.label :tags_name_cont_all, 'タグ名' %>
+    <%= f.search_field :tags_name_cont_all %>
+    </br>
     
-  </div>
-  <div class = "main-content">
+    <%= f.submit '検索' %>
+  <% end %>
+</div>
+<div class = "main">
+  
+  <div class = "main-content"> 
     <div class = "main-wrapper">
       <div class = "post-wrapper">
-  <div class = "post-header">
-  </div>
-  <div class = "posts-area">
-    <div class = "inner-post-area">
-    <% @posts.each do |post|%>
-        <div class = "post">
-          <a href = "/shops/posts/<%= post.id%>"></a>
-          <div class = "post-image"></div>
-          <div class = "post-contents">
-            <p class = "wine-name"><%= post.wine_name %></p>
-            <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
-            <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
-            <% unless shop_signed_in? %>
-            <p class = "shop-name"><%= post.shop[:shop_name] %></p>
-            <% end %>
-             <% post.tags.each do |tag| %>
-              <p class = "post-tags">#<%= tag.name %></p>
-            <% end %>
-             <% if post.sold_out %>
-              <p>SOLD OUT</p>
+        <div class = "post-header">
+          <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
+            <option value="A">今日のおすすめ順</option>
+            <option value="B">開けたて順</option>
+          </select>
+        </div>
+        <div class = "posts-area">
+          <div class = "inner-post-area">
+            <% @posts.each do |post|%>
+              <div class = "post">
+                <a href = "/shops/posts/<%= post.id%>"></a>
+                <div class = "post-image"></div>
+                <div class = "post-contents">
+                  <p class = "wine-name"><%= post.wine_name %></p>
+                  <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
+                  <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
+                  <% unless shop_signed_in? %>
+                    <p class = "shop-name"><%= post.shop[:shop_name] %></p>
+                  <% end %>
+                  <% post.tags.each do |tag| %>
+                    <p class = "post-tags">#<%= tag.name %></p>
+                  <% end %>
+                  <% if post.sold_out %>
+                    <p>SOLD OUT</p>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>
-    <% end %>
-    </div>
-  </div>
-</div>
+      </div>
       <%= render partial: "shared/footer" %>
     </div>
   </div>

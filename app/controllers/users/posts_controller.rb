@@ -1,7 +1,7 @@
 class Users::PostsController < ApplicationController
   skip_before_action :authenticate_any!, only: [:top,:search]
   before_action :redirect_to_toppage, only: :top
-  before_action :set_q, only: [:search,:top]
+  before_action :set_q, only: [:search,:top,:index]
   
   def index
     @posts_all = Post.includes(:shop)

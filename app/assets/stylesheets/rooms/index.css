@@ -3,21 +3,6 @@
 }
 
 
-.side-bar-content{
-  margin: 10px;
-  background-color: dimgray;
-  height: 80px;
-  width: auto;
-  padding: 5px 10px;
-  position: sticky;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.side-bar-content p{
-font-size: large;
-}
 
 
 
@@ -53,13 +38,5 @@ font-size: large;
 
 .text{
   padding: 5px;
-}
-
-.foot-wrapper{
-  background-color: deeppink;
-  height: 50px;
-  width: 100vw;
-  position: absolute;
-  bottom: auto;
 }
 
