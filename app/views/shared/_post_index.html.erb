@@ -6,7 +6,7 @@
     <% posts.each do |post|%>
       <% if current_shop.id == post.shop_id%>
         <div class = "post">
-          <a href = "/shops/posts/<%= post.id%>"></a>
+          <a href = "/users/posts/<%= post.id%>"></a>
           <div class = "post-image"></div>
           <div class = "post-contents">
             <p class = "wine-name"><%= post.wine_name %></p>

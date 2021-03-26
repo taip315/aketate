@@ -1,4 +1,5 @@
 class Shops::PostsController < ApplicationController
+  # skip_before_action :authenticate_any!, only: [:show]
   before_action :get_post, only:[:show,:destroy]
   before_action :ensure_correct_shop, only:[:show,:edit,:update,:destroy]
 

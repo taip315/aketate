@@ -14,8 +14,9 @@
       <%= link_to "ユーザーとしてログイン", new_user_session_path, class: "header-btn"%>
       <%= link_to "ショップとしてログイン", new_shop_session_path, class: "header-btn"%>
     <% end %>
-    <% if user_signed_in? %>
+    <% if user_signed_in? || shop_signed_in? %>
     <nav id = "nav">
+      <% if user_signed_in?%>
       <ul>
         <li>
           <%= link_to "ショップを検索する", search_users_shops_path, class: "side-bar-content" %>
@@ -27,6 +28,26 @@
           <%= link_to "予約一覧", users_reservations_path, class: "side-bar-content" %>
         </li>
       </ul>
+      <% elsif shop_signed_in? %>
+      <ul>
+        <li>
+          <%= link_to "新規投稿", new_shops_post_path , class: "side-bar-content"%>
+        </li>
+        <li>
+          <%= link_to "フォローリクエスト一覧", shops_shop_follow_requests_path(current_shop.id), class: "side-bar-content" %>
+        </li>
+        <li>
+          <%= link_to "フォロワー一覧", shops_shop_memberships_path(current_shop.id), class: "side-bar-content"%>
+        </li>
+        <li>
+          <%= link_to "予約リクエスト一覧", shops_shop_reservation_requests_path(current_shop.id) , class: "side-bar-content"%>
+        </li>
+        <li>
+          <%= link_to "予約一覧", shops_reservations_path , class: "side-bar-content"%>
+        </li>
+      </ul>
+      <% end %>
+
     </nav>
     <div id = "hamburger">
       <span class = "inner_line", id="line1"></span>

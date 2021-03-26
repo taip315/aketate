@@ -1,0 +1,10 @@
+<div class = "post-search-form">
+  <h1>飲みたいお酒から店探しをしよう</h1>
+  <%= search_form_for q, url: search_users_posts_path do |f|%>
+    <%= f.label :tags_name_cont_all, 'タグ名' %>
+    <%= f.search_field :tags_name_cont_all %>
+    </br>
+    
+    <%= f.submit '検索' %>
+  <% end %>
+</div>

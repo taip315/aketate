@@ -1,17 +1,31 @@
 .post-area{
-  height: auto;
+  height: 500px;
   width: 100%;
   display: flex;
+  position: relative;
+  margin-top: 60px;
 }
 
+
 .post-area-center{
-  height: auto;
-  width: 40%;
+  height: 500px;
+  width: 60%;
+  text-align: center;
+}
+
+.post-area-center h1{
+  text-align: center;
+}
+
+.post-area-center-content{
   background-color: floralwhite;
-  margin: 20px 0;
+  margin: 50px 0;
   padding-top: 20px;
   overflow: scroll;
+  display: flex;
+
 }
+
 .post-area-right{
   height: 100%;
   width: 30%;
@@ -24,10 +38,20 @@
 }
 
 .reservation-button{
-  margin: 50px 0px 0px 50px;
-  padding: 50px;
-  background-color: chartreuse;
-  position: fixed;
+  margin: 10px 0px 0px 10px;
+  padding: 20px 50px;
+  color: #fff;
+  background: #FF7851;
+  border-radius: 100vh;
+  text-decoration: none;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 4px solid #FB3D28;
+}
+
+.reservation-button:active {
+  transform: translateY(4px);
+  border-bottom: none;
 }
 
 .edit-destroy-button{
@@ -39,8 +63,8 @@
 
 .post-image-show{
   
-  width: auto;
-  height: 50%;
+  width: 500px;
+  height: 300px;
   margin: 50px;
   background-color: darkblue;
 }

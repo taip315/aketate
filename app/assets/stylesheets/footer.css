@@ -1,10 +1,10 @@
 .foot-wrapper{
-  background-color:#f7f4f2;
-  position: absolute;
-  height: 150px;
-  bottom: 0;
+  background-color:#d0d0d0;
+  /* position: absolute;
+  /* height: 150px; */
+  /* bottom: 0; */
   width: 100vw;
-  padding: 20px 0 0 0;
+  padding: 50px 0 0 0;
   text-align: center;
 }
 

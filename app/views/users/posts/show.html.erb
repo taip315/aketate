@@ -1,0 +1,38 @@
+<%= render partial: "shared/header" %>
+<div class = "header-back"></div>
+<div class = "main">
+<div class = "main-wrapper">
+  <div class = "post-area">
+    <div class = "post-area-left">
+    </div>
+    <div class = "post-area-center">
+      <h1>投稿詳細</h1>
+      <div class = "post-area-center-content">
+        <div class = "post-image-show"></div>
+        <div class = "post-contents">
+          <p class = "wine-name"><%= @post.wine_name %></p>
+          <p class = "wine-genre">ジャンル : <%= @post.wine_genre[:name] %></p>
+          <p class = "open-date">開栓 : <%= time_ago_in_words(@post.open_date)%>前</p>
+          <p class = "wibe-pruce">価格 : <%= @post.price%>円</p>
+          <% if user_signed_in? %>
+          <p class = "shop-name"><%= @post.shop[:shop_name] %></p>
+          <% end %>
+          <p class = "post-content">説明文 :</br><%= @post.content%></p>
+          <% @post.tags.each do |tag| %>
+            <p class = "post-tags">#<%= tag.name %></p>
+          <% end %>
+          <% if @post.sold_out %>
+            <p>SOLD OUT</p>
+          <% end %>
+          
+        </div>
+        
+      </div>
+      <%= link_to "予約する", new_users_shop_reservation_request_path(@post.shop_id),  class: "reservation-button" %>
+    </div>
+    <div class = "post-area-right">
+    </div>
+  </div>
+</div>
+</div>
+<%= render partial: "shared/footer" %>
