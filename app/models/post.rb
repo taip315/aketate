@@ -3,7 +3,8 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :post_tag_relations
   has_many :tags, through: :post_tag_relations
-  
+  has_one_attached :image
+
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :wine_genre

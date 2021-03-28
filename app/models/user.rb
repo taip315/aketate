@@ -24,6 +24,7 @@ class User < ApplicationRecord
   has_many :comments
   has_many :reservations, dependent: :destroy
   has_many :reservation_reqests, dependent: :destroy
+  has_one_attached :image
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :gender

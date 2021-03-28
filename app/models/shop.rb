@@ -24,6 +24,7 @@ class Shop < ApplicationRecord
   has_many :comments
   has_many :reservations
   has_many :reservation_requests
+  has_one_attached :image
   
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
