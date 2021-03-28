@@ -19,9 +19,6 @@
       <% if user_signed_in?%>
       <ul>
         <li>
-          <%= link_to "ショップを検索する", search_users_shops_path, class: "side-bar-content" %>
-        </li>
-        <li>
           <%= link_to "登録ショップリスト", users_user_memberships_path(current_user.id), class: "side-bar-content" %>
         </li>
         <li>

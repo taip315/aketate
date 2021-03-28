@@ -16,9 +16,6 @@
               </div>
             </div>
             <div class = "follow-button-area">
-              <%= link_to "メッセージを送る", "#", class: "follow-button" %>
-            </div>
-            <div class = "follow-button-area">
               <%= link_to "フォローを取消", users_user_memberships_path(membership.shop_id, Membership.find_by(user_id: current_user.id, shop_id: membership.shop_id).id), method: :delete, class: "follow-button" %>
             </div>
           </div>

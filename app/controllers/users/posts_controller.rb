@@ -8,6 +8,7 @@ class Users::PostsController < ApplicationController
     @user = User.find(current_user.id)
     @following_shops = @user.shops
     @posts = @posts_all.where(shop_id: @following_shops).order(created_at: "DESC")
+    @posts_open_date = @posts_all.where(shop_id: @following_shops).order("open_date DESC")
   end
 
   def show
@@ -17,6 +18,7 @@ class Users::PostsController < ApplicationController
   
   def top
     @posts = Post.includes(:shop)
+    @posts_open_date = Post.includes(:shop).order("open_date DESC")
   end
 
   def search
