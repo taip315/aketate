@@ -1,17 +1,67 @@
+
 <div class ="head-wrapper">
   <div class = "head-left">
-    <a href = "/", class = "logo">ロゴ</a>
+    <%= link_to image_tag('logo.png',width: '130', height: '50'), "/", class: "logo"%>
   </div>
   <div class = "head-right">
-  <% if user_signed_in? %>
-    <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "log-out"%>
-    <%= link_to "#{current_user.nickname}", user_path(current_user.id),class: "user-info"%>
-  <% elsif shop_signed_in? %>
-    <%= link_to "ログアウト", destroy_shop_session_path, method: :delete, class: "log-out"%>
-    <%= link_to "#{current_shop.shop_name}", shops_shop_path(current_shop.id),class: "user-info"%>
-  <% else %>
-    <%= link_to "ユーザーとしてログイン", new_user_session_path, class: "log-out"%>
-    <%= link_to "ショップとしてログイン", new_shop_session_path, class: "log-out"%>
-  <% end %>
+    <% if user_signed_in? %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "header-btn"%>
+      <%= link_to "#{current_user.nickname}", user_path(current_user.id),class: "header-btn"%>
+    <% elsif shop_signed_in? %>
+      <%= link_to "ログアウト", destroy_shop_session_path, method: :delete, class: "header-btn"%>
+      <%= link_to "#{current_shop.shop_name}", shops_shop_path(current_shop.id),class: "header-btn"%>
+    <% else %>
+      <%= link_to "ユーザーとしてログイン", new_user_session_path, class: "header-btn"%>
+      <%= link_to "ショップとしてログイン", new_shop_session_path, class: "header-btn"%>
+    <% end %>
+    <% if user_signed_in? || shop_signed_in? %>
+    <nav id = "nav">
+      <% if user_signed_in?%>
+      <ul>
+        <li>
+          <%= link_to "登録ショップリスト", users_user_memberships_path(current_user.id), class: "side-bar-content" %>
+        </li>
+        <li>
+          <%= link_to "予約一覧", users_reservations_path, class: "side-bar-content" %>
+        </li>
+      </ul>
+      <% elsif shop_signed_in? %>
+      <ul>
+        <li>
+          <%= link_to "新規投稿", new_shops_post_path , class: "side-bar-content"%>
+        </li>
+        <li>
+          <%= link_to "フォローリクエスト一覧", shops_shop_follow_requests_path(current_shop.id), class: "side-bar-content" %>
+        </li>
+        <li>
+          <%= link_to "フォロワー一覧", shops_shop_memberships_path(current_shop.id), class: "side-bar-content"%>
+        </li>
+        <li>
+          <%= link_to "予約リクエスト一覧", shops_shop_reservation_requests_path(current_shop.id) , class: "side-bar-content"%>
+        </li>
+        <li>
+          <%= link_to "予約一覧", shops_reservations_path , class: "side-bar-content"%>
+        </li>
+      </ul>
+      <% end %>
+
+    </nav>
+    <div id = "hamburger">
+      <span class = "inner_line", id="line1"></span>
+      <span class = "inner_line", id="line2"></span>
+      <span class = "inner_line", id="line3"></span>
+    </div>
+    <% end %>
+    <script>
+function hamburger() {
+  document.getElementById('line1').classList.toggle('line_1');
+  document.getElementById('line2').classList.toggle('line_2');
+  document.getElementById('line3').classList.toggle('line_3');
+  document.getElementById('nav').classList.toggle('in');
+}
+document.getElementById('hamburger').addEventListener('click' , function () {
+  hamburger();
+} );
+</script>
   </div>
 </div>

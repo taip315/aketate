@@ -1,4 +1,5 @@
 <%= render partial: "shared/header" %>
+<div class = "header-back"></div>
 <div class = "main">
     <div class = "main-wrapper">
       <%= month_calendar  events: @reservations do |date, reservations|%>
@@ -7,6 +8,6 @@
           <%= link_to "#{reservation.shop[:shop_name]}  #{reservation.start_time.hour}:#{reservation.start_time.min} ", users_reservation_path(reservation.id) %>
          <% end %>
       <% end %>
-      <%= render partial: "shared/footer" %>
     </div>
 </div>
+<%= render partial: "shared/footer" %>

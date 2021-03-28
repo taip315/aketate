@@ -15,15 +15,7 @@ function abcd(value) {
 </script>
 
 <%= render partial: "shared/header" %>
-<div class = "post-search-form">
-    <%= search_form_for @q, url: search_users_posts_path do |f|%>
-      <%= f.label :tags_name_cont_all, 'タグ名' %>
-      <%= f.search_field :tags_name_cont_all %>
-      </br>
-      
-      <%= f.submit '検索' %>
-    <% end %>
-  </div>
+<%= render partial: "shared/search-form", locals:{ q: @q} %>
 <div class = "main">
   <div class = "main-content">
     <div class = "main-wrapper">
@@ -35,48 +27,10 @@ function abcd(value) {
             <option value="B">開けたて順</option>
           </select>
         </div>
-
-        
-
-        <div class = "posts-area">
-          <div class = "inner-post-area hidden1" id = "A">
-          <% @posts.sample(6).each do |post|%>
-              <div class = "post">
-                <a href = "/shops/posts/<%= post.id%>"></a>
-                <div class = "post-image"></div>
-                <div class = "post-contents">
-                  <p class = "wine-name"><%= post.wine_name %></p>
-                  <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
-                  <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
-                  <% unless shop_signed_in? %>
-                  <p class = "shop-name"><%= post.shop[:shop_name] %></p>
-                  <% end %>
-                </div>
-              </div>
-          <% end %>
-          </div>
-
-          <div class = "inner-post-area hidden2" id = "B">
-          <% @posts.order('open_date DESC').each do |post|%>
-              <div class = "post">
-                <a href = "/shops/posts/<%= post.id%>"></a>
-                <div class = "post-image"></div>
-                <div class = "post-contents">
-                  <p class = "wine-name"><%= post.wine_name %></p>
-                  <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
-                  <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
-                  <% unless shop_signed_in? %>
-                  <p class = "shop-name"><%= post.shop[:shop_name] %></p>
-                  <% end %>
-                </div>
-              </div>
-          <% end %>
-          
-          </div>
-        </div>
+        <%= render partial: "shared/users_post_index", locals:{ posts: @posts, posts_open_date: @posts_open_date}%>
       </div>
-      <%= render partial: "shared/footer" %>
     </div>
   </div>
 </div>
 
+  <%= render partial: "shared/footer" %>

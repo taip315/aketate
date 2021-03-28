@@ -1,22 +1,24 @@
 class Users::PostsController < ApplicationController
   skip_before_action :authenticate_any!, only: [:top,:search]
   before_action :redirect_to_toppage, only: :top
-  before_action :set_q, only: [:search,:top]
+  before_action :set_q, only: [:search,:top,:index]
   
   def index
     @posts_all = Post.includes(:shop)
     @user = User.find(current_user.id)
     @following_shops = @user.shops
     @posts = @posts_all.where(shop_id: @following_shops).order(created_at: "DESC")
+    @posts_open_date = @posts_all.where(shop_id: @following_shops).order("open_date DESC")
   end
 
   def show
-  
+    @post = Post.find(params[:id])
   end
   
   
   def top
     @posts = Post.includes(:shop)
+    @posts_open_date = Post.includes(:shop).order("open_date DESC")
   end
 
   def search

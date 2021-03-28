@@ -1,42 +1,36 @@
+<script>
+function abcd(value) {
+  let selectBoxA = document.getElementById("A")
+  let selectBoxB = document.getElementById("B")
+    if(value === "A"){
+      selectBoxA.setAttribute("style", "display:flex;")
+      selectBoxB.setAttribute("style", "display:none;")
+
+    }
+    else if(value === "B"){
+      selectBoxA.setAttribute("style", "display:none;")
+      selectBoxB.setAttribute("style", "display:flex;")
+    }
+  }
+</script>
 <%= render partial: "shared/header" %>
+
+<%= render partial: "shared/search-form", locals:{ q: @q} %>
 <div class = "main">
-  <div class = "side-bar">
-    <%= link_to "ショップを検索する", search_users_shops_path, class: "side-bar-content" %>
-    <%= link_to "登録ショップリスト", users_user_memberships_path(current_user.id), class: "side-bar-content" %>
-    <%= link_to "予約一覧", users_reservations_path, class: "side-bar-content" %>
-    
-  </div>
-  <div class = "main-content">
+  
+  <div class = "main-content"> 
     <div class = "main-wrapper">
       <div class = "post-wrapper">
-  <div class = "post-header">
-  </div>
-  <div class = "posts-area">
-    <div class = "inner-post-area">
-    <% @posts.each do |post|%>
-        <div class = "post">
-          <a href = "/shops/posts/<%= post.id%>"></a>
-          <div class = "post-image"></div>
-          <div class = "post-contents">
-            <p class = "wine-name"><%= post.wine_name %></p>
-            <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
-            <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
-            <% unless shop_signed_in? %>
-            <p class = "shop-name"><%= post.shop[:shop_name] %></p>
-            <% end %>
-             <% post.tags.each do |tag| %>
-              <p class = "post-tags">#<%= tag.name %></p>
-            <% end %>
-             <% if post.sold_out %>
-              <p>SOLD OUT</p>
-            <% end %>
-          </div>
+        <div class = "post-header">
+          <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
+            <option value="A">今日のおすすめ順</option>
+            <option value="B">開けたて順</option>
+          </select>
         </div>
-    <% end %>
+        
+         <%= render partial: "shared/users_post_index", locals:{ posts: @posts, posts_open_date: @posts_open_date}%>
+      </div>
     </div>
   </div>
 </div>
-      <%= render partial: "shared/footer" %>
-    </div>
-  </div>
-</div>
+ <%= render partial: "shared/footer" %>

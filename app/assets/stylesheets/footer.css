@@ -1,0 +1,41 @@
+.foot-wrapper{
+  background-color:#d0d0d0;
+  /* position: absolute;
+  /* height: 150px; */
+  /* bottom: 0; */
+  width: 100vw;
+  padding: 50px 0 0 0;
+  text-align: center;
+}
+
+
+.footer-contents {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.aketate-details{
+  margin: 0 4vw;
+}
+
+.footer-content-head {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-link {
+  color: black;
+  font-size: 12px;
+  line-height: 30px;
+}
+
+.logo-white {
+  width: 20vh;
+  vertical-align: bottom;
+}
+
+.footer-wrapper>p {
+  font-size: 14px;
+} 
