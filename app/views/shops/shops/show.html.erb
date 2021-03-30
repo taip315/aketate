@@ -1,7 +1,9 @@
 <%= render partial: "shared/header" %>
 <div class = "main-wrapper">
   <div class = "user-information-area">
-    <div class = "user-icon-show"></div>
+    <div class = "user-icon-show">
+          <%= image_tag @shop.image.variant(resize: '240x256') if @shop.image.attached? %>
+        </div>
     <div class = "user-data">
       <h3>shop名</h3>
       <p><%= @shop.shop_name %></p>

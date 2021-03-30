@@ -1,7 +1,9 @@
 <%= render partial: "shared/header" %>
 <div class = "main-wrapper">
   <div class = "user-information-area">
-    <div class = "user-icon-show"></div>
+    <div class = "user-icon-show">
+          <%= image_tag @user.image.variant(resize: '240x256') if @user.image.attached? %>
+        </div>
     <div class = "user-data">
       <h3>ニックネーム</h3>
       <p><%= @user.nickname%></p>
@@ -24,5 +26,5 @@
       <% end %>
     </div>
   </div>
-  <%= render partial: "shared/footer" %>
 </div>
+  <%= render partial: "shared/footer" %>

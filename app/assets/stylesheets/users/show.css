@@ -1,16 +1,15 @@
 .user-information-area{
   margin-top: 100px;
   height: 400px;
-  width: 400px;
+  width: 40%;
   background-color: chocolate;
   display: flex;
 }
 
 .user-icon-show{
   margin: 30px;
-  height: 100px;
-  width: 100px;
-  background-color: cornflowerblue;
+  height: auto;
+  width: auto;
 }
 
 .user-data{
