@@ -3,7 +3,9 @@
   <% posts.sample(6).each do |post|%>
       <div class = "post">
         <a href = "/users/posts/<%= post.id%>"></a>
-        <div class = "post-image"></div>
+        <div class = "post-image">
+          <%= image_tag post.image.variant(resize: '240x256') if post.image.attached? %>
+        </div>
         <div class = "post-contents">
           <p class = "wine-name"><%= post.wine_name %></p>
           <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
@@ -19,7 +21,9 @@
   <% posts_open_date.each do |post|%>
       <div class = "post">
         <a href = "/users/posts/<%= post.id%>"></a>
-        <div class = "post-image"></div>
+        <div class = "post-image">
+          <%= image_tag post.image.variant(resize: '240x256') if post.image.attached? %>
+        </div>
         <div class = "post-contents">
           <p class = "wine-name"><%= post.wine_name %></p>
           <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
