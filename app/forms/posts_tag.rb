@@ -1,9 +1,10 @@
 class PostsTag
 
   include ActiveModel::Model
-  attr_accessor :wine_name,:content,:price, :open_date, :wine_genre_id, :name, :shop_id, :sold_out
+  attr_accessor :image, :wine_name,:content,:price, :open_date, :wine_genre_id, :name, :shop_id, :sold_out
   
   with_options presence: true do 
+    validates :image
     validates :wine_name
     validates :content
     validates :price, numericality: true
@@ -23,7 +24,7 @@ class PostsTag
   def save(tag_list)
 
     ActiveRecord::Base.transaction do
-      @post.update(wine_name: wine_name,content: content,price: price, open_date: open_date, wine_genre_id: wine_genre_id, shop_id: shop_id, sold_out: sold_out)
+      @post.update(image: image, wine_name: wine_name,content: content,price: price, open_date: open_date, wine_genre_id: wine_genre_id, shop_id: shop_id, sold_out: sold_out)
 
       current_tags = @post.tags.pluck(:name) unless @post.tags.nil?
       old_tags = current_tags - tag_list
@@ -56,6 +57,7 @@ class PostsTag
 
   def default_attributes
     {
+      image: post.image,
       wine_name: post.wine_name,
       content: post.content,
       price: post.price,

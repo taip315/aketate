@@ -22,6 +22,12 @@ function abcd(value) {
   <div class = "main-content">
     <div class = "main-wrapper">
       <div class = "post-wrapper">
+      <div class = "post-header">
+          <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
+            <option value="A">今日のおすすめ順</option>
+            <option value="B">開けたて順</option>
+          </select>
+        </div>
 
 
         <div class = "posts-area">
@@ -29,7 +35,9 @@ function abcd(value) {
           <% @posts.each do |post|%>
               <div class = "post">
                 <a href = "/shops/posts/<%= post.id%>"></a>
-                <div class = "post-image"></div>
+                <div class = "post-image">
+                  <%= image_tag post.image.variant(resize: '240x256') if post.image.attached? %>
+                </div>
                 <div class = "post-contents">
                   <p class = "wine-name"><%= post.wine_name %></p>
                   <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
