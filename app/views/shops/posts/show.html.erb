@@ -5,7 +5,9 @@
       投稿詳細
     </div>
     <div class = "post-area-center">
-      <div class = "post-image-show"></div>
+      <div class = "post-image">
+          <%= image_tag post.image.variant(resize: '240x256') if post.image.attached? %>
+        </div>
       <div class = "post-contents">
         <p class = "wine-name"><%= @post.wine_name %></p>
         <p class = "wine-genre">ジャンル : <%= @post.wine_genre[:name] %></p>

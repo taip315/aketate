@@ -8,7 +8,9 @@
     <div class = "post-area-center">
       <h1>投稿詳細</h1>
       <div class = "post-area-center-content">
-        <div class = "post-image-show"></div>
+        <div class = "post-image">
+          <%= image_tag post.image.variant(resize: '240x256') if post.image.attached? %>
+        </div>
         <div class="post-contents-wrapper">
           <div class = "post-contents">
             <h1 class = "wine-name"><%= @post.wine_name %></h1>
