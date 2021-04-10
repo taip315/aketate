@@ -4,7 +4,7 @@ class Post < ApplicationRecord
   has_many :post_tag_relations
   has_many :tags, through: :post_tag_relations
   has_one_attached :image
-
+  
   validate :image_content_type, if: :was_attached?
 
 

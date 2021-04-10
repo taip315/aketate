@@ -54,7 +54,7 @@ class Shops::PostsController < ApplicationController
 
   private
   def post_params
-  params.require(:post).permit(:wine_name,:content,:price, :open_date, :wine_genre_id, :name, :sold_out, :image).merge(shop_id: current_shop.id )
+  params.require(:post).permit(:wine_name,:vintage,:content,:price, :open_date, :wine_genre_id, :name, :sold_out, :image).merge(shop_id: current_shop.id )
   end
 
   def get_post
