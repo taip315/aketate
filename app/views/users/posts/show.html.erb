@@ -17,6 +17,13 @@
             <h1 class = "shop-name"><%= link_to @post.shop[:shop_name], users_shop_path(@post.shop_id) %></h1>
             <% end %>
             <h1 class = "wine-name"><%= @post.wine_name %></h1>
+            <p class = "vintage">
+              <% if @post.vintage.present?%>
+              <%= @post.vintage %>
+              <%else%>
+              Non Vintage
+              <%end%>
+            </p>
             <p class = "wine-genre">ジャンル : <%= @post.wine_genre[:name] %></p>
             <p class = "open-date">開栓 : <%= time_ago_in_words(@post.open_date)%>前</p>
             <p class = "wine-price">価格 : <%= @post.price%>円</p>
