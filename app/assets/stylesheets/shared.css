@@ -183,6 +183,15 @@ font-size: large;
   background-color: #fbfbfb;
 }
 
+.error-massege{
+  color: red;
+  margin: 50px 0 0 50px;
+}
+
+.error-massege li{
+  list-style-type: none;
+}
+
 
 /* 
 .side-bar{

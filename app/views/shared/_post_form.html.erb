@@ -3,31 +3,31 @@
       <div class = "field">
         <%= f.label :image, '画像' %>
         <%= f.file_field :image %>
-      </div>
+      </div></br>
       <div class = "field">
-      <%= f.label :wine_name, 'ワイン名' %></br>
+      <%= f.label :wine_name, 'ワイン名' %>
       <%= f.text_field :wine_name %>
-      </div>
+      </div></br>
       <div class = "field">
-      <%= f.label :vintage, 'ヴィンテージ' %></br>
-      <%= f.text_field :vintage %>年
-      </div>
+      <%= f.label :vintage, 'ヴィンテージ' %>
+      <p><%= f.text_field :vintage %>年</p>
+      </div></br>
       <div class = "field">
-      <%= f.label :open_date, '開栓日' %></br>
+      <%= f.label :open_date, '開栓日' %>
       <%= f.date_field :open_date %>
-      </div>
+      </div></br>
       <div class = "field">
-      <%= f.label :price, '価格' %></br>
+      <%= f.label :price, '価格' %>
       <%= f.text_field :price %>円
-      </div>
+      </div></br>
       <div class = "field">
-        <%= f.label :wine_genre, 'お酒の種類' %></br>
+        <%= f.label :wine_genre, 'お酒の種類' %>
         <%= f.collection_select(:wine_genre_id, WineGenre.all, :id, :name) %>
-      </div>
+      </div></br>
       <div class = "field">
-        <%= f.label :content, "詳細" %></br>
+        <%= f.label :content, "詳細" %>
         <%= f.text_area :content %>
-      </div>
+      </div></br>
       <div class="field", id='tag-field'>
         <%= f.label :name, "タグ" %>
         <%= f.text_field :name, class:"input-tag" %>

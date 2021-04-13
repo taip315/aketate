@@ -7,6 +7,16 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+  activemodel:
+    attributes:
+      posts_tag:
+        wine_name: お酒の名前 
+        image: 商品画像
+        content: 投稿詳細
+        price: 商品価格
+        open_date: 開栓日
+        name: タグ
+        vintage: ヴィンテージ
   date:
     abbr_day_names:
     - 日
