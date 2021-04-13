@@ -1,6 +1,17 @@
 ---
 ja:
   activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        nickname: ニックネーム
+        last_name: 名字
+        first_name: 名前
+        last_kana: 名字（フリガナ）
+        first_kana: 名前（フリガナ）
+        birthday: 誕生日
+        phone_number: 電話番号
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
@@ -10,7 +21,7 @@ ja:
   activemodel:
     attributes:
       posts_tag:
-        wine_name: お酒の名前 
+        wine_name: お酒の名前
         image: 商品画像
         content: 投稿詳細
         price: 商品価格
