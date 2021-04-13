@@ -12,6 +12,16 @@ ja:
         first_kana: 名前（フリガナ）
         birthday: 誕生日
         phone_number: 電話番号
+      shop:
+        email: メールアドレス
+        password: パスワード
+        shop_name: 店舗名
+        administrator: 管理者
+        postal: 郵便番号
+        address: 住所
+        nearest_station: 最寄り駅
+        building: 建物名
+        phone_number: 電話番号
     errors:
       messages:
         record_invalid: 'バリデーションに失敗しました: %{errors}'
