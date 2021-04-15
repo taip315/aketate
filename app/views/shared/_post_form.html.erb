@@ -1,39 +1,39 @@
 <div class = "form-wrapper">
     <%= form_with model: [:shops, post_tag], local: true do |f| %>
       <div class = "field">
-        <%= f.label :image, '画像' %>
+        <%= f.label :image, '画像' %><br>
         <%= f.file_field :image %>
-      </div></br>
+      </div>
       <div class = "field">
-      <%= f.label :wine_name, 'ワイン名' %>
+      <%= f.label :wine_name, 'ワイン名' %><br>
       <%= f.text_field :wine_name %>
-      </div></br>
+      </div>
       <div class = "field">
-      <%= f.label :vintage, 'ヴィンテージ' %>
+      <%= f.label :vintage, 'ヴィンテージ' %><br>
       <p><%= f.text_field :vintage %>年</p>
-      </div></br>
+      </div>
       <div class = "field">
-      <%= f.label :open_date, '開栓日' %>
+      <%= f.label :open_date, '開栓日' %><br>
       <%= f.date_field :open_date %>
-      </div></br>
+      </div>
       <div class = "field">
-      <%= f.label :price, '価格' %>
+      <%= f.label :price, '価格' %><br>
       <p><%= f.text_field :price %>円</p>
-      </div></br>
+      </div>
       <div class = "field">
-        <%= f.label :wine_genre, 'お酒の種類' %>
+        <%= f.label :wine_genre, 'お酒の種類' %><br>
         <%= f.collection_select(:wine_genre_id, WineGenre.all, :id, :name) %>
-      </div></br>
+      </div>
       <div class = "field">
-        <%= f.label :content, "詳細" %>
+        <%= f.label :content, "詳細" %><br>
         <%= f.text_area :content %>
-      </div></br>
+      </div>
       <div class="field", id='tag-field'>
-        <%= f.label :name, "タグ" %>
+        <%= f.label :name, "タグ" %><br>
         <%= f.text_field :name, class:"input-tag" %>
       </div>
       <div class="field">
-        <%= f.label :sold_out, "販売状況" %>
+        <%= f.label :sold_out, "販売状況" %><br>
         <%= f.radio_button :sold_out, false %>販売中<%= f.radio_button :sold_out, true %>売り切れ
       </div>
       <div class = "field">

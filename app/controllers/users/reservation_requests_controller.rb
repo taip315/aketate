@@ -6,9 +6,16 @@ class Users::ReservationRequestsController < ApplicationController
   end
 
   def create
-    ReservationRequest.create(reservation_request_params)
-    redirect_to root_path
+    @shop = Shop.find(params[:shop_id])
+    @request = ReservationRequest.new(reservation_request_params)
+    if @request.valid?
+      @request.save
+      redirect_to root_path
+    else
+      render 'new'
     end
+  end
+
 
   private
   def reservation_request_params

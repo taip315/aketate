@@ -186,11 +186,19 @@ font-size: large;
 .error-massege{
   color: red;
   margin: 50px 0 0 50px;
+  text-align: center;
 }
 
-.error-massege li{
-  list-style-type: none;
+.error-massege ul{
+  
+  display: inline-block;
 }
+
+.error-massege ul li{
+  list-style-type: none;
+  text-align: left;
+}
+
 
 
 /* 
