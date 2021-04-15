@@ -4,6 +4,6 @@ class ReservationRequest < ApplicationRecord
 
   with_options presence: true do
     validates :start_time
-    validates :number_of_people
+    validates :number_of_people, numericality: true
   end
 end

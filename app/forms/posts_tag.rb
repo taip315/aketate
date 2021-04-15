@@ -3,8 +3,8 @@ class PostsTag
   include ActiveModel::Model
   attr_accessor :image, :wine_name,:vintage, :content,:price, :open_date, :wine_genre_id, :name, :shop_id, :sold_out
   
+  validates :image, presence: {message: "画像を選択してください"}
   with_options presence: true do 
-    validates :image
     validates :wine_name
     validates :content
     validates :price, numericality: true

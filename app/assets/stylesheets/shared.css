@@ -183,6 +183,23 @@ font-size: large;
   background-color: #fbfbfb;
 }
 
+.error-massege{
+  color: red;
+  margin: 50px 0 0 50px;
+  text-align: center;
+}
+
+.error-massege ul{
+  
+  display: inline-block;
+}
+
+.error-massege ul li{
+  list-style-type: none;
+  text-align: left;
+}
+
+
 
 /* 
 .side-bar{

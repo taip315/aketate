@@ -8,7 +8,7 @@
         </div>
         <div class = "post-contents">
           <p class = "wine-name"><%= post.wine_name %></p>
-          <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
+          <p class = "open-date">開栓:<%= time_ago_in_words(post.open_date)%>前</p>
           <% unless shop_signed_in? %>
           <p class = "shop-name"><%= post.shop[:shop_name] %></p>
           <% end %>

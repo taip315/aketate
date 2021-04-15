@@ -43,3 +43,9 @@ label{
   color: #990000;
   background: #ffffff;
 }
+
+.reservation-request-error-messages{
+  background-color: #f7f4f2;
+  height: 100%;
+  padding-top: 5px;
+}
