@@ -5,6 +5,7 @@ ja:
       user:
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード（確認用）
         nickname: ニックネーム
         last_name: 名字
         first_name: 名前
@@ -12,6 +13,7 @@ ja:
         first_kana: 名前（フリガナ）
         birthday: 誕生日
         phone_number: 電話番号
+        gender_id: 性別
       shop:
         email: メールアドレス
         password: パスワード
