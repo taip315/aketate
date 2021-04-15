@@ -43,7 +43,7 @@
 
   <div class="field">
     <%= f.label :"都道府県" %><br />
-    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name %>
+    <%= f.collection_select :prefecture_id, Prefecture.all, :id, :name, {include_blank: "選択してください", selected:"選択してください"}%>
   </div>
 
   <div class="field">
@@ -63,7 +63,7 @@
 
   <div class="field">
     <%= f.label :"ジャンル" %><br />
-    <%= f.collection_select :genre_id, Genre.all, :id, :name %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :name, {include_blank: "選択してください", selected:"選択してください"} %>
   </div>
 
   <div class="field">

@@ -57,7 +57,7 @@
 
   <div class="field">
     <%= f.label :"性別" %><br />
-    <%= f.collection_select :gender_id, Gender.all, :id, :name %>
+    <%= f.collection_select :gender_id, Gender.all, :id, :name, {include_blank: "選択してください", selected:"選択してください"} %>
   </div>
 
 <div class="field">

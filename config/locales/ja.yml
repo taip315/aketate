@@ -17,13 +17,16 @@ ja:
       shop:
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード（確認用）
         shop_name: 店舗名
         administrator: 管理者
         postal: 郵便番号
+        prefecture_id: 都道府県
         address: 住所
         nearest_station: 最寄り駅
         building: 建物名
         phone_number: 電話番号
+        genre_id: ジャンル
       reservation_request:
         start_time: 予約時間
         number_of_people: 人数
