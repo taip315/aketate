@@ -44,8 +44,10 @@ ja:
         content: 投稿詳細
         price: 商品価格
         open_date: 開栓日
+        wine_genre_id: ジャンル
         name: タグ
         vintage: ヴィンテージ
+        sold_out: 販売状況
   date:
     abbr_day_names:
     - 日
