@@ -4,11 +4,16 @@ class Users::PostsController < ApplicationController
   before_action :set_q, only: [:search,:top,:index]
   
   def index
-    @posts_all = Post.includes(:shop)
     @user = User.find(current_user.id)
     @following_shops = @user.shops
-    @posts = @posts_all.where(shop_id: @following_shops).order(created_at: "DESC")
-    @posts_open_date = @posts_all.where(shop_id: @following_shops).order("open_date DESC")
+
+    if (params.has_key?(:follow) == false) || (params[:follow] == "off")
+      @posts = Post.includes(:shop)
+    else params[:follow] == "on"
+      @posts = Post.includes(:shop).where(shop_id: @following_shops).order(created_at: "DESC")
+    end
+
+    @posts_open_date = @posts.order("open_date DESC")
   end
 
   def show

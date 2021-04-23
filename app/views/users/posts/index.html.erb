@@ -12,6 +12,7 @@ function abcd(value) {
       selectBoxB.setAttribute("style", "display:flex;")
     }
   }
+
 </script>
 <%= render partial: "shared/header" %>
 
@@ -25,8 +26,12 @@ function abcd(value) {
           <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
             <option value="A">開けたて順</option>
             <option value="B">今日のおすすめ順</option>
-            
           </select>
+          <% if params[:follow] == "on" %>
+            <%= button_to "全ての店舗を表示する", {controller: 'users/posts', action: 'index'},{method: :get, params: {follow: "off"}}%>
+          <% else %>
+            <%= button_to "フォロー中店舗の投稿のみ表示する", {controller: 'users/posts', action: 'index'},{method: :get, params: {follow: "on"}}%>
+          <% end %>
         </div>
         
          <%= render partial: "shared/users_post_index", locals:{ posts: @posts, posts_open_date: @posts_open_date}%>
