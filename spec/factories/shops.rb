@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :shop do
       email               {Faker::Internet.email}
-      password            {Faker::Internet.password(min_length:6)}
+      password            {Faker::Internet.password(min_length:30)}
       shop_name           {"焼肉キング"}
       administrator       {Gimei.last.kanji}
       postal              {"123-1234"}

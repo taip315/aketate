@@ -5,6 +5,7 @@ ja:
       user:
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード（確認用）
         nickname: ニックネーム
         last_name: 名字
         first_name: 名前
@@ -12,16 +13,20 @@ ja:
         first_kana: 名前（フリガナ）
         birthday: 誕生日
         phone_number: 電話番号
+        gender_id: 性別
       shop:
         email: メールアドレス
         password: パスワード
+        password_confirmation: パスワード（確認用）
         shop_name: 店舗名
         administrator: 管理者
         postal: 郵便番号
+        prefecture_id: 都道府県
         address: 住所
         nearest_station: 最寄り駅
         building: 建物名
         phone_number: 電話番号
+        genre_id: ジャンル
       reservation_request:
         start_time: 予約時間
         number_of_people: 人数
@@ -39,8 +44,10 @@ ja:
         content: 投稿詳細
         price: 商品価格
         open_date: 開栓日
+        wine_genre_id: ジャンル
         name: タグ
         vintage: ヴィンテージ
+        sold_out: 販売状況
   date:
     abbr_day_names:
     - 日
