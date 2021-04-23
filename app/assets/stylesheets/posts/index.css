@@ -1,11 +1,18 @@
 .post-header{
   width: 100%;
   height: 50px;
+  padding: 10px;
   background-color: #f7f4f2;
+  display:flex;
+  align-items: center;
 }
 
 .post-header select{
-  margin: 30px 0 0 20px;
+  margin: 30px 0 30px 20px;
+}
+
+.post-header button{
+  margin: 0 0 0 20px;
 }
 
 .post-wrapper{
