@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Post, type: :form do
   before do
     @post = FactoryBot.build(:posts_tag)
-    @post.image = fixture_file_upload('app/assets/images/photo-1498429152472-9a433d9ddf3b.jpeg')
+    @post.image = fixture_file_upload('/files/photo-1498429152472-9a433d9ddf3b.jpeg')
   end
 
   describe '新規投稿' do
