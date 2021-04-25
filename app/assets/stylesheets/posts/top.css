@@ -15,6 +15,23 @@
 }
 
 .post-search-form form{
-  display: flex;
-  justify-content: center;
+  /* display: flex;
+  justify-content: center; */
+  text-align: center;
+}
+
+.tag-area{
+  height: 100px;
+  width: 50%;
+  margin: 0 auto;
+
+
+}
+
+.tag-area button{
+  margin:0;/*余計な隙間を除く*/
+  font-size: 20px;/*文字サイズ*/
+  border: solid white 2px; /*線で囲う*/
+  padding: 7px;/*文字と線の間の余白*/
+  color: white;/*文字色*/
 }

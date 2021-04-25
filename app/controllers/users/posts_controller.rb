@@ -4,6 +4,7 @@ class Users::PostsController < ApplicationController
   before_action :set_q, only: [:search,:top,:index]
   
   def index
+    @tags = Tag.all
     @user = User.find(current_user.id)
     @following_shops = @user.shops
 
@@ -27,6 +28,7 @@ class Users::PostsController < ApplicationController
   end
 
   def search
+    @tags = Tag.all
     keywords = params[:q][:tags_name_cont_all].split(/[[:blank:]]+/)
     
     @posts = Post.has_tag_name_all(keywords)
