@@ -16,11 +16,24 @@
   
 }
 
+
+.footer-content{
+  display: flex;
+}
+
+.footer-right,.footer-left{
+  margin: 0 40px;
+}
+
 .aketate-details{
   margin: 0 4vw;
 }
 .aketate-details ul{
 list-style: none;
+}
+
+.aketate-details h2{
+  margin-top: 10px;
 }
 
 .footer-content-head {

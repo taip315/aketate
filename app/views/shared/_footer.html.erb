@@ -2,19 +2,22 @@
   <div class='footer-contents'>
     <div class='aketate-details'>
       <h2 class='footer-content-head'>AKETATEについて</h2>
-      <ul>
-        <li><%= link_to '会社概要（運営会社)', "#", class: "footer-link" %></li>
-        <li><%= link_to 'プライバシーポリシー', "#", class: "footer-link" %></li>
-        <li><%= link_to 'AKETATE利用規約', "#", class: "footer-link" %></li>
-      </ul>
-    </div>
-    <div class='aketate-details'>
-      <h2 class='footer-content-head'>AKETATEについて</h2>
-      <ul>
-        <li><%= link_to 'AKETATEガイド', "#", class: "footer-link" %></li>
-        <li><%= link_to 'AKETATEロゴ利用ガイドライン', "#", class: "footer-link" %></li>
-        <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
-      </ul>
+      <div class = 'footer-content'>
+        <div class = 'footer-left'>
+          <ul>
+            <li><%= link_to '会社概要（運営会社)', "#", class: "footer-link" %></li>
+            <li><%= link_to 'プライバシーポリシー', "#", class: "footer-link" %></li>
+            <li><%= link_to 'AKETATE利用規約', "#", class: "footer-link" %></li>
+          </ul>
+        </div>
+        <div class='footer-right'>
+          <ul>
+            <li><%= link_to 'AKETATEガイド', "#", class: "footer-link" %></li>
+            <li><%= link_to 'AKETATEロゴ利用ガイドライン', "#", class: "footer-link" %></li>
+            <li><%= link_to 'お知らせ', "#", class: "footer-link" %></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
   <%= link_to image_tag("logo.png", class:"logo-white"), "#" %>
