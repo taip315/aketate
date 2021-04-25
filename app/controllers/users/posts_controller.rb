@@ -2,9 +2,9 @@ class Users::PostsController < ApplicationController
   skip_before_action :authenticate_any!, only: [:top,:search]
   before_action :redirect_to_toppage, only: :top
   before_action :set_q, only: [:search,:top,:index]
-  
+  before_action :set_tags, only:[:search,:top,:index]
+
   def index
-    @tags = Tag.all
     @user = User.find(current_user.id)
     @following_shops = @user.shops
 
@@ -28,7 +28,6 @@ class Users::PostsController < ApplicationController
   end
 
   def search
-    @tags = Tag.all
     keywords = params[:q][:tags_name_cont_all].split(/[[:blank:]]+/)
     
     @posts = Post.has_tag_name_all(keywords)
@@ -69,6 +68,10 @@ class Users::PostsController < ApplicationController
 
   def set_q
     @q = Post.ransack(params[:q])
+  end
+
+  def set_tags
+    @tags = Tag.all
   end
 end
 
