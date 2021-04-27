@@ -199,6 +199,18 @@ font-size: large;
   text-align: left;
 }
 
+.devise_errors{
+  color: red;
+  margin: 50px 0 0 0;
+}
+ 
+.devise_errors ul{
+  display: inline-block;
+}
+
+.devise_errors ul li{
+  list-style-type: none;
+}
 
 
 /* 
