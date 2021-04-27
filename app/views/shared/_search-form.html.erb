@@ -8,7 +8,6 @@
     <button data-index=<%=x%> type="button" class="tag-button" id="tag-button-<%= x%>" value ="<%=tag.name%>"><%=tag.name%></button>
     <% end %>
     </div><br>
-    <%= f.label :tags_name_cont_all, 'タグ名' %>
     <%= f.search_field :tags_name_cont_all, id:'tag-search-field', size:'50' %>
     <br>
     

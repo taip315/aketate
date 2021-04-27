@@ -22,10 +22,12 @@ function abcd(value) {
       <div class = "post-wrapper">
 
         <div class = "post-header">
-          <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
-            <option value="A">開けたて順</option>
-            <option value="B">今日のおすすめ順</option>
-          </select>
+          <div class="selectdiv"> 
+            <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
+              <option value="A">開けたて順</option>
+              <option value="B">今日のおすすめ順</option>
+            </select>
+          </div>
         </div>
         <%= render partial: "shared/users_post_index", locals:{ posts: @posts, posts_open_date: @posts_open_date}%>
       </div>

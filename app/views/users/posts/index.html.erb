@@ -23,14 +23,16 @@ function abcd(value) {
     <div class = "main-wrapper">
       <div class = "post-wrapper">
         <div class = "post-header">
-          <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
-            <option value="A">開けたて順</option>
-            <option value="B">今日のおすすめ順</option>
-          </select>
+          <div class="selectdiv"> 
+            <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
+              <option value="A">開けたて順</option>
+              <option value="B">今日のおすすめ順</option>
+            </select>
+          </div>
           <% if params[:follow] == "on" %>
-            <%= button_to "全ての店舗を表示する", {controller: 'users/posts', action: 'index'},{method: :get, params: {follow: "off"}}%>
+            <%= button_to "全ての店舗を表示する", {controller: 'users/posts', action: 'index'},{method: :get, params: {follow: "off"}, class:"select-btn"}%>
           <% else %>
-            <%= button_to "フォロー中店舗の投稿のみ表示する", {controller: 'users/posts', action: 'index'},{method: :get, params: {follow: "on"}}%>
+            <%= button_to "フォロー中店舗の投稿のみ表示する", {controller: 'users/posts', action: 'index'},{method: :get, params: {follow: "on"}, class:"select-btn"}%>
           <% end %>
         </div>
         
