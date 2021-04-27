@@ -12,7 +12,7 @@
   height: 40%;
 }
 
-.post-contents p{
+.post-contents p,h3{
   text-align: center;
   margin-top: 10px;
 }

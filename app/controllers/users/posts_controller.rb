@@ -9,12 +9,14 @@ class Users::PostsController < ApplicationController
     @following_shops = @user.shops
 
     if (params.has_key?(:follow) == false) || (params[:follow] == "off")
-      @posts = Post.includes(:shop)
+      posts = Post.includes(:shop)
+      
     else params[:follow] == "on"
-      @posts = Post.includes(:shop).where(shop_id: @following_shops).order(created_at: "DESC")
+      posts = Post.includes(:shop).where(shop_id: @following_shops).order(created_at: "DESC")
     end
-
-    @posts_open_date = @posts.order("open_date DESC")
+    @posts_open_date = posts.order("open_date DESC")
+    @posts_without_soldout = posts.where.not(sold_out: true)
+    
   end
 
   def show
@@ -23,8 +25,9 @@ class Users::PostsController < ApplicationController
   
   
   def top
-    @posts = Post.includes(:shop)
+    posts = Post.includes(:shop)
     @posts_open_date = Post.includes(:shop).order("open_date DESC")
+    @posts_without_soldout = posts.where.not(sold_out: true)
   end
 
   def search

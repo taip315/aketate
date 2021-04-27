@@ -74,6 +74,13 @@
   width: 80%;
   height: 60%;
   margin: 30px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+
+
+.sold-out{
+  background-color: red;
+}
