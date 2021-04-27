@@ -12,7 +12,17 @@
   height: 40%;
 }
 
-.post-contents p,h3{
+.post-contents p{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.post-contents h3{
+  text-align: center;
+  margin-top: 10px;
+}
+
+.post-contents h1{
   text-align: center;
   margin-top: 10px;
 }

@@ -11,7 +11,11 @@
         <div class = "post-area-center-content-header">
         </div>
         <div class = "post-image">
-          <%= image_tag @post.image.variant(resize: '240x256') if @post.image.attached? %>
+          <%if @post.image.attached?%>
+          <%= image_tag @post.image.variant(resize: '240x256') %>
+          <%else%>
+          <%= image_tag('no_image.jpeg',size: '240x256')%>
+          <%end%>
         </div>
         <div class="post-contents-wrapper">
           <div class = "post-contents">
@@ -35,9 +39,9 @@
             <h1 class = "shop-name"><%= link_to @post.shop[:shop_name], users_shop_path(@post.shop_id) %></h1>
             <% end %>
             <% if @post.sold_out %>
-              <p>SOLD OUT</p>
+              <p class = "sold-out">SOLD OUT</p>
             <% else %>
-              <p class = "wine-price">価格 : <%= @post.price%>円</p>
+              <h3 class = "wine-price">グラス価格 : <%= @post.price%>円</h3>
             <% end %>
             
           </div>
