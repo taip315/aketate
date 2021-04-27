@@ -7,6 +7,10 @@
   box-shadow: 10px 10px 10px gray; */
 }
 
+.login-form h1{
+  font-size: 30px;
+}
+
 .login-main-wrapper{
   background-color: #f7f4f2;
   height: 100%;

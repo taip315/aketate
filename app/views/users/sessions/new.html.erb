@@ -3,7 +3,7 @@
 <div class = "main">
   <div class = "main-wrapper">
     <div class = "login-form">
-      <h2>User Log in</h2>
+      <h1>ユーザーログイン</h1>
 
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   
@@ -25,13 +25,11 @@
       <% end %>
 
       <div class="actions">
-        <%= f.submit "Log in" %>
+        <%= f.submit "ログイン" %>
       </div>
     <% end %>
     
-    <%= render "users/shared/links" %>
-
-    <%= link_to "shopとしてログインする", new_shop_session_path %>
+    <%= render "users/shared/links" %><br />
 
     </div>
   </div>
