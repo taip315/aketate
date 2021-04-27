@@ -21,7 +21,11 @@ Rails.application.routes.draw do
         get :search
       end
       resources :follow_requests, only: [:create, :destroy]
-      resources :reservation_requests
+      resources :reservation_requests do
+        collection do
+          get 'done'
+        end
+      end
     end
     resources :posts do
       collection do
@@ -41,7 +45,8 @@ Rails.application.routes.draw do
       post '/follow_requests/:id' => 'follow_requests#allow', as: 'allow'
       resources :follow_requests
       post '/reservation_requests/:id' => 'reservation_requests#reserve_allow', as: 'reserve_allow'
-      resources :reservation_requests
+      resources :reservation_requests 
+
       resources :users, only:[:index,:show]
     end
     resources :reservations
