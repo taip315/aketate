@@ -178,7 +178,7 @@ font-size: large;
 
 .user-icon{
   height: calc(100% - 20px);
-  width: 90px;
+  width: 80px;
   margin: 10px;
   background-color: #fbfbfb;
 }

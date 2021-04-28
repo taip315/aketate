@@ -30,7 +30,7 @@
       <h3>最寄り駅</h3>
       <p><%= @shop.nearest_station %></p>
       <%# <%= link_to "店舗情報を変更する", edit_shop_registration_path(current_shop.id) %> 
-<div class = "follow-button-area">
+      <div class = "follow-button-area">
             <% if current_user.already_requested?(@shop) %>
               <%= link_to "リクエスト取消", users_shop_follow_request_path(@shop.id, FollowRequest.find_by(user_id: current_user.id, shop_id: @shop.id).id), method: :delete, class: "follow-button" %>
             <% elsif current_user.already_followed?(@shop) %>
