@@ -1,5 +1,5 @@
 .post-area{
-  height: 500px;
+  height: auto;
   width: 100%;
   display: flex;
   position: relative;
@@ -8,9 +8,9 @@
 
 
 .post-area-center{
-  height: 500px;
   width: 60%;
   text-align: center;
+  
 }
 
 .post-area-center h1{
