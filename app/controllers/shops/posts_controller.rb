@@ -8,7 +8,7 @@ class Shops::PostsController < ApplicationController
       redirect_to users_posts_path
     end
   
-    @posts = Post.includes(:shop)
+    @posts = Post.includes(:shop).order("open_date DESC")
   end
 
   def new

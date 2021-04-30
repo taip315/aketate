@@ -1,11 +1,17 @@
-<%= render partial: "shared/header" %>
+ <%= render partial: "shared/header" %>
 <div class = "header-back"></div>
 <div class = "main">
-
-  <div class = "main-content">
+  
+  <div class = "main-content"> 
     <div class = "main-wrapper">
-      <%= render partial: "shared/shops_post_index", locals:{ posts: @posts}%>
+      <div class = "post-wrapper">
+        <div class = "post-header">
+          <h1><%= current_shop.shop_name%>の投稿一覧</h1>
+        </div>
+        
+         <%= render partial: "shared/shops_post_index", locals:{ posts: @posts}%>
+      </div>
     </div>
   </div>
-</div> 
+</div>
  <%= render partial: "shared/footer" %>

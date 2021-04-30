@@ -15,6 +15,11 @@
   margin: 0 0 0 20px;
 }
 
+.post-header h1{
+  margin: auto;
+  font-size: 30px;
+}
+
 .post-wrapper{
   width: 100%;
 }
