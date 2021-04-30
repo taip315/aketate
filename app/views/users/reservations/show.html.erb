@@ -1,9 +1,11 @@
 <%= render partial: "shared/header" %>
+<div class = "header-back"></div>
 <div class = "main">
   <div class = "main-wrapper">
     <table class = "reservation-table">
+    <caption><h1>予約詳細</h1></caption>
       <tr>
-        <th>店舗名</th><td><%= @reservation.shop[:shop_name] %></td>
+        <th>店舗名</th><td><%= link_to @reservation.shop[:shop_name], users_shop_path(@reservation.shop[:id]) %></td>
       </tr>
       <tr>
         <th>予約日時</th><td><%= @reservation.start_time.month %>月<%= @reservation.start_time.day %>日</td>

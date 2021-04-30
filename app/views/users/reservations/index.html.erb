@@ -5,7 +5,7 @@
       <%= month_calendar  events: @reservations do |date, reservations|%>
         <%= date.month %>/<%= date.day %></br>
         <% reservations.each do |reservation| %>
-          <%= link_to "#{reservation.shop[:shop_name]}  #{reservation.start_time.hour}:#{reservation.start_time.min} ", users_reservation_path(reservation.id) %>
+          <%= link_to "#{reservation.shop[:shop_name]}  #{reservation.start_time.hour}:#{reservation.start_time.min} ", users_reservation_path(reservation.id) %><br />
          <% end %>
       <% end %>
     </div>
