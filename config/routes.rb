@@ -46,9 +46,8 @@ Rails.application.routes.draw do
       resources :follow_requests
       post '/reservation_requests/:id' => 'reservation_requests#reserve_allow', as: 'reserve_allow'
       resources :reservation_requests 
-
-      resources :users, only:[:index,:show]
     end
+    resources :users, only:[:index,:show]
     resources :reservations
   end
   resources :messages, only:[:new]
