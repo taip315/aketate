@@ -1,39 +1,58 @@
 <%= render partial: "shared/header" %>
+<div class = "header-back"></div>
+<div class = "main">
 <div class = "main-wrapper">
-  <div class = "user-information-area">
-    <div class = "user-icon-show">
-          <%= image_tag @shop.image.variant(resize: '240x256') if @shop.image.attached? %>
+  <div class = "post-area">
+    <div class = "post-area-left">
+    </div>
+    <div class = "post-area-center">
+      <h1>ショップ詳細情報</h1>
+      <div class = "post-area-center-content">
+        <div class = "post-area-center-content-header">
         </div>
-    <div class = "user-data">
-      <h3>shop名</h3>
-      <p><%= @shop.shop_name %></p>
-      <br>
-      <h3>管理者</h3>
-      <p><%= @shop.administrator %></p>
-      <br>
+        <div class = "post-image">
+          <%if @shop.image.attached?%>
+          <%= image_tag @shop.image.variant(resize: '240x256') %>
+          <%else%>
+          <%= image_tag('no_image.jpeg',size: '240x256')%>
+          <%end%>
+        </div>
+        <div class="post-contents-wrapper">
+          <div class = "post-contents">
+            <h3>shop名</h3>
+            <p><%= @shop.shop_name %></p>
+            <br>
+            <h3>管理者</h3>
+            <p><%= @shop.administrator %></p>
+            <br>
 
-      <h3>メールアドレス</h3>
-      <p><%= @shop.email %></p>
-      <br>
-      <h3>住所</h3>
-      <p><%= @shop.postal %></p>
-      <p>
-      <%= @shop.prefecture[:name] %>
-      <%= @shop.address%>
-      </p>
-      <p><%= @shop.building %></p><br>
+            <h3>メールアドレス</h3>
+            <p><%= @shop.email %></p>
+            <br>
+            <h3>住所</h3>
+            <p><%= @shop.postal %></p>
+            <p>
+            <%= @shop.prefecture[:name] %>
+            <%= @shop.address%>
+            </p>
+            <p><%= @shop.building %></p><br>
 
-      <h3>電話番号</h3>
-      <p><%= @shop.phone_number %></p>
-      <br>
-      <h3>ジャンル</h3>
-      <p><%= @shop.genre[:name] %></p>
-      <br>
-      <h3>最寄り駅</h3>
-      <p><%= @shop.nearest_station %></p>
-      <%# <%= link_to "店舗情報を変更する", edit_shop_registration_path(current_shop.id) %> 
-
+            <h3>電話番号</h3>
+            <p><%= @shop.phone_number %></p>
+            <br>
+            <h3>ジャンル</h3>
+            <p><%= @shop.genre[:name] %></p>
+            <br>
+            <h3>最寄り駅</h3>
+            <p><%= @shop.nearest_station %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class = "post-area-right">
     </div>
   </div>
-  <%= render partial: "shared/footer" %>
 </div>
+</div>
+<%= render partial: "shared/footer" %>
+
