@@ -29,7 +29,6 @@ class Shops::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @post_tag = PostsTag.new(post: @post)
-  
   end
 
   def update
