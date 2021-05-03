@@ -20,7 +20,11 @@ Rails.application.routes.draw do
       collection do
         get :search
       end
-      resources :follow_requests, only: [:create, :destroy]
+      resources :follow_requests, only: [:create, :destroy] do
+        collection do
+          get 'done'
+        end
+      end
       resources :reservation_requests do
         collection do
           get 'done'
@@ -38,14 +42,24 @@ Rails.application.routes.draw do
 
   namespace :shops do
     resources :posts do
-
+      collection do
+        get 'done'
+      end
     end
     resources :shops do
       resources :memberships
       post '/follow_requests/:id' => 'follow_requests#allow', as: 'allow'
-      resources :follow_requests
+      resources :follow_requests do
+        collection do
+          get 'done'
+        end
+      end
       post '/reservation_requests/:id' => 'reservation_requests#reserve_allow', as: 'reserve_allow'
-      resources :reservation_requests 
+      resources :reservation_requests do 
+        collection do
+          get 'done'
+        end
+      end 
     end
     resources :users, only:[:index,:show]
     resources :reservations

@@ -19,7 +19,7 @@ class Shops::PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post_tag.valid? 
       @post_tag.save(tag_list)
-      redirect_to root_path
+      redirect_to done_shops_posts_path
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class Shops::PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post_tag.valid?
       @post_tag.save(tag_list)
-      redirect_to root_path
+      redirect_to done_shops_posts_path
     else
       render 'edit'
     end
