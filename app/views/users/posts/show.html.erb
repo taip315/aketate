@@ -29,7 +29,7 @@
             </p>
             <p class = "wine-genre">ジャンル : <%= @post.wine_genre[:name] %></p>
             <p class = "open-date">開栓 : <%= time_ago_in_words(@post.open_date)%>前</p>
-            <p class = "post-content">説明文 :</br><%= @post.content%></p>
+            <p class = "post-content">説明文 :<br><%= @post.content%></p>
             <p class = "post-tags">
               <% @post.tags.each do |tag| %>
                 #<%= tag.name %>

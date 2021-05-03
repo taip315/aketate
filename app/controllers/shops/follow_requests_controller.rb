@@ -1,6 +1,6 @@
 class Shops::FollowRequestsController < ApplicationController
   def index
-    @follow_requests = current_shop.follow_requests.all
+    @follow_requests = FollowRequest.where(shop_id: current_shop.id)
   end
 
   def allow
