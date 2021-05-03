@@ -1,32 +1,28 @@
-<div class = "post-wrapper">
-  <div class = "post-header">
-  </div>
-  <div class = "posts-area">
-    <div class = "inner-post-area">
-    <% posts.each do |post|%>
-      <% if current_shop.id == post.shop_id%>
-        <div class = "post">
-          <a href = "/shops/posts/<%= post.id%>"></a>
-          <div class = "post-image">
-            <%= image_tag post.image.variant(resize: '240x256') if post.image.attached? %>
-          </div>
-          <div class = "post-contents">
-            <p class = "wine-name"><%= post.wine_name %></p>
-            <p class = "wine-genre">ジャンル : <%= post.wine_genre[:name] %></p>
-            <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
-            <% if user_signed_in? %>
-              <p class = "shop-name"><%= post.shop[:shop_name] %></p>
-            <% end %>
-            <% post.tags.each do |tag| %>
-              <p class = "post-tags">#<%= tag.name %></p>
-            <% end %>
-            <% if post.sold_out %>
-              <p>SOLD OUT</p>
-            <% end %>
+<div class = "posts-area">
+  <div class = "inner-post-area hidden1" id = "A">
+  <% posts.each do |post|%>
+      <div class = "post">
+        <a href = "/shops/posts/<%= post.id%>"></a>
+        <div class = "post-image">
+        <% if post.image.attached? %>
+          <%= image_tag post.image.variant(resize: '240x256') %>
+        <%else%>
+          <%= image_tag('no_image.jpeg',size: '240x256')%>
+        <% end %>
+        </div>
+        <div class = "post-contents">
+          <h3 class = "wine-name"><%= post.wine_name %></h3>
+          <p class = "open-date">開栓:<%= time_ago_in_words(post.open_date)%>前</p>
+          <% unless shop_signed_in? %>
+          <p class = "shop-name"><%= post.shop[:shop_name] %></p>
+          <% end %>
+          <div class = "sold-out">
+          <%if post.sold_out%>
+          <p>SOLD OUT</p>
+          <% end %>
           </div>
         </div>
-      <% end %>
-    <% end %>
-    </div>
+      </div>
+  <% end %>
   </div>
 </div>

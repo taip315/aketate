@@ -4,14 +4,23 @@
       <div class = "post">
         <a href = "/users/posts/<%= post.id%>"></a>
         <div class = "post-image">
-          <%= image_tag post.image.variant(resize: '240x256') if post.image.attached? %>
+        <% if post.image.attached? %>
+          <%= image_tag post.image.variant(resize: '240x256') %>
+        <%else%>
+          <%= image_tag('no_image.jpeg',size: '240x256')%>
+        <% end %>
         </div>
         <div class = "post-contents">
-          <p class = "wine-name"><%= post.wine_name %></p>
-          <p class = "open-date">開栓 : <%= time_ago_in_words(post.open_date)%>前</p>
+          <h3 class = "wine-name"><%= post.wine_name %></h3>
+          <p class = "open-date">開栓:<%= time_ago_in_words(post.open_date)%>前</p>
           <% unless shop_signed_in? %>
           <p class = "shop-name"><%= post.shop[:shop_name] %></p>
           <% end %>
+          <div class = "sold-out">
+          <%if post.sold_out%>
+          <p>SOLD OUT</p>
+          <% end %>
+          </div>
         </div>
       </div>
   <% end %>
@@ -22,14 +31,23 @@
       <div class = "post">
         <a href = "/users/posts/<%= post.id%>"></a>
         <div class = "post-image">
-          <%= image_tag post.image.variant(resize: '240x256') if post.image.attached? %>
+        <% if post.image.attached? %>
+          <%= image_tag post.image.variant(resize: '240x256') %>
+        <%else%>
+          <%= image_tag('no_image.jpeg',size: '240x256')%>
+        <% end %>
         </div>
         <div class = "post-contents">
-          <p class = "wine-name"><%= post.wine_name %></p>
+          <h3 class = "wine-name"><%= post.wine_name %></h3>
           <p class = "open-date">開栓:<%= time_ago_in_words(post.open_date)%>前</p>
           <% unless shop_signed_in? %>
           <p class = "shop-name"><%= post.shop[:shop_name] %></p>
           <% end %>
+         <div class = "sold-out">
+          <%if post.sold_out%>
+          <p>SOLD OUT</p>
+          <% end %>
+          </div>
         </div>
       </div>
   <% end %>

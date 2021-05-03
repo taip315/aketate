@@ -1,10 +1,35 @@
+
 <div class = "post-search-form">
   <h1>飲みたいお酒から店探しをしよう</h1>
   <%= search_form_for q, url: search_users_posts_path do |f|%>
-    <%= f.label :tags_name_cont_all, 'タグ名' %>
-    <%= f.search_field :tags_name_cont_all %>
-    </br>
-    
-    <%= f.submit '検索' %>
+      <div class = "tag-area">
+      <h3>タグ検索</h3>
+      <% tags.sample(10).each_with_index do |tag,x|%>
+      <% @x=x %>
+      <button data-index=<%=x%> type="button" class="tag-button" id="tag-button-<%= x%>" value ="<%=tag.name%>"><%=tag.name%></button>
+      <% end %>
+      <div class = "tag-search-field">
+        <%= f.search_field :tags_name_cont_all, id:'tag-search-field', size:'50' %>
+        <br>
+        <%= f.submit '検索' %>
+      </div>
+    </div>
   <% end %>
 </div>
+
+<script>
+const buttons = document.querySelectorAll(".tag-button");
+buttons.forEach(function(button){
+button.addEventListener('click',{id:`${button.id}`,value: `${button.value}`, handleEvent: show})
+})
+
+function show(event){
+  let target = event.target;
+  let index = target.getAttribute('data-index');
+  let searchField = document.getElementById('tag-search-field');
+  if(this.id == `tag-button-${index}`){
+   searchField.value += this.value + " ";
+  };
+}
+
+</script>

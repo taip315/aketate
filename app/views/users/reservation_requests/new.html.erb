@@ -5,21 +5,22 @@
 </div>
 <div class = "main-wrapper">
   <table class = "form-table">
+  <caption><h1>予約申請フォーム</h1></caption>
   <tbody>
     <%= form_with model:[:users,@shop, @request], local: true do |f| %>
     <tr>
       <th><%= f.label :start_time, '予約時間' %></th><br>
-      <td><%= f.datetime_field :start_time %>
+      <td><%= f.datetime_select :start_time, {minute_step: 30}%>
       </td>
     </tr>
     <tr>
       <th><%= f.label :number_of_people, '人数' %></th><br>
-      <td><%= f.text_field :number_of_people %>人
+      <td ><%= f.select :number_of_people,[['1',1],['2',2],['3',3],['4',4],['5',5],['6',6],['7',7],['8',8],['9',9],['10',10]],{include_blank: "選択してください"},{} %>人
       </td>
     </tr>
     <tr>
       <th><%= f.label :remarks, '備考' %></th><br>
-      <td><%= f.text_area :remarks %>
+      <td><%= f.text_area :remarks, placeholder: "11名を超える人数、キープして欲しいワイン、食事のアレルギーなどのコメントを記入お願いします。" %>
       </td>
     </tr>
     <tr>

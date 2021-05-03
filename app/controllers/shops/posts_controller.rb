@@ -7,8 +7,7 @@ class Shops::PostsController < ApplicationController
     if user_signed_in?
       redirect_to users_posts_path
     end
-  
-    @posts = Post.includes(:shop)
+    @posts = Post.where(shop_id: current_shop.id).order("open_date DESC")
   end
 
   def new
@@ -20,7 +19,7 @@ class Shops::PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post_tag.valid? 
       @post_tag.save(tag_list)
-      redirect_to root_path
+      redirect_to done_shops_posts_path
     else
       render 'new'
     end
@@ -29,7 +28,6 @@ class Shops::PostsController < ApplicationController
   def edit
     @post = Post.find(params[:id])
     @post_tag = PostsTag.new(post: @post)
-  
   end
 
   def update
@@ -38,7 +36,7 @@ class Shops::PostsController < ApplicationController
     tag_list = params[:post][:name].split(',')
     if @post_tag.valid?
       @post_tag.save(tag_list)
-      redirect_to root_path
+      redirect_to done_shops_posts_path
     else
       render 'edit'
     end

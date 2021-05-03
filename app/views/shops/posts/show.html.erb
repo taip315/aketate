@@ -1,50 +1,65 @@
+
 <%= render partial: "shared/header" %>
+<div class = "header-back"></div>
+<div class = "main">
 <div class = "main-wrapper">
   <div class = "post-area">
     <div class = "post-area-left">
-      投稿詳細
     </div>
     <div class = "post-area-center">
-      <div class = "post-image">
-          <%= image_tag @post.image.variant(resize: '240x256') if @post.image.attached? %>
+      <h1>投稿詳細</h1>
+      <div class = "post-area-center-content">
+        <div class = "post-area-center-content-header">
         </div>
-      <div class = "post-contents">
-        <p class = "wine-name"><%= @post.wine_name %></p>
-        <p class = "vintage">
-          <% if @post.vintage.present?%>
-          <%= @post.vintage %>
+        <div class = "post-image">
+          <%if @post.image.attached?%>
+          <%= image_tag @post.image.variant(resize: '240x256') %>
           <%else%>
-          Non Vintage
+          <%= image_tag('no_image.jpeg',size: '240x256')%>
           <%end%>
-        </p>
-        <p class = "wine-genre">ジャンル : <%= @post.wine_genre[:name] %></p>
-        <p class = "open-date">開栓 : <%= time_ago_in_words(@post.open_date)%>前</p>
-        <p class = "wibe-pruce">価格 : <%= @post.price%>円</p>
-        <% if user_signed_in? %>
-        <p class = "shop-name"><%= @post.shop[:shop_name] %></p>
-        <% end %>
-        <p class = "post-content">説明文 :</br><%= @post.content%></p>
-         <% @post.tags.each do |tag| %>
-          <p class = "post-tags">#<%= tag.name %></p>
-        <% end %>
-        <% if @post.sold_out %>
-          <p>SOLD OUT</p>
-        <% end %>
+        </div>
+        <div class="post-contents-wrapper">
+          <div class = "post-contents">
+            <h1 class = "wine-name"><%= @post.wine_name %></h1>
+            <p class = "vintage">
+              <% if @post.vintage.present?%>
+              <%= @post.vintage %>
+              <%else%>
+              Non Vintage
+              <%end%>
+            </p>
+            <p class = "wine-genre">ジャンル : <%= @post.wine_genre[:name] %></p>
+            <p class = "open-date">開栓 : <%= time_ago_in_words(@post.open_date)%>前</p>
+            <p class = "post-content">説明文 :</br><%= @post.content%></p>
+            <p class = "post-tags">
+              <% @post.tags.each do |tag| %>
+                #<%= tag.name %>
+              <% end %>
+            </p>
+           <% if user_signed_in? %>
+            <h1 class = "shop-name"><%= link_to @post.shop[:shop_name], users_shop_path(@post.shop_id) %></h1>
+            <% end %>
+            <% if @post.sold_out %>
+              <p class = "sold-out">SOLD OUT</p>
+            <% else %>
+              <h3 class = "wine-price">グラス価格 : <%= @post.price%>円</h3>
+            <% end %>
+            
+          </div>
+        </div>
         
       </div>
-    </div>
-    <div class = "post-area-right">
       <% if user_signed_in? && @post.sold_out == false %>
       <%= link_to "予約する", new_users_shop_reservation_request_path(@post.shop_id),  class: "reservation-button" %>
       <% end %>
       <% if shop_signed_in? %>
-      <div class = "edit-destroy-button">
-        <h3>投稿を</h3>
-        <%= link_to "編集する", edit_shops_post_path(@post.id) %>
-        <%= link_to "削除する", shops_post_path(@post.id), method: :delete %>
-      </div>
+        <%= link_to "投稿を編集する", edit_shops_post_path(@post.id),  class: "reservation-button" %>
+        <%= link_to "投稿を削除する", shops_post_path(@post.id), method: :delete ,  class: "reservation-button"%>
       <% end %>
     </div>
+    <div class = "post-area-right">
+    </div>
   </div>
+</div>
 </div>
 <%= render partial: "shared/footer" %>

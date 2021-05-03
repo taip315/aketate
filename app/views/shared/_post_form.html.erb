@@ -6,11 +6,11 @@
       </div>
       <div class = "field">
       <%= f.label :wine_name, 'ワイン名' %><br>
-      <%= f.text_field :wine_name %>
+      <%= f.text_field :wine_name , placeholder: "Opus One", style:"display:flex;"%>
       </div>
       <div class = "field">
       <%= f.label :vintage, 'ヴィンテージ' %><br>
-      <p><%= f.text_field :vintage %>年</p>
+      <p><%= f.text_field :vintage, placeholder: "2000" %>年</p>
       </div>
       <div class = "field">
       <%= f.label :open_date, '開栓日' %><br>
@@ -18,7 +18,7 @@
       </div>
       <div class = "field">
       <%= f.label :price, '価格' %><br>
-      <p><%= f.text_field :price %>円</p>
+      <p><%= f.text_field :price, placeholder: "10000" %>円</p>
       </div>
       <div class = "field">
         <%= f.label :wine_genre, 'お酒の種類' %><br>
@@ -26,11 +26,11 @@
       </div>
       <div class = "field">
         <%= f.label :content, "詳細" %><br>
-        <%= f.text_area :content %>
+        <%= f.text_area :content, placeholder: "おすすめポイント、ワインの説明" %>
       </div>
       <div class="field", id='tag-field'>
-        <%= f.label :name, "タグ" %><br>
-        <%= f.text_field :name, class:"input-tag" %>
+        <%= f.label :name, "タグ" %>
+        <%= f.text_field :name, class:"input-tag" , size: "60" ,placeholder:"「,」で区切ると複数登録できます。ex)赤ワイン,カリフォルニア"%>
       </div>
       <div class="field">
         <%= f.label :sold_out, "販売状況" %><br>

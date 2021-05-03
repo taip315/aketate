@@ -43,9 +43,6 @@ class PostsTag
         post_tag_relation = PostTagRelation.where(post_id: @post.id, tag_id: post_tag.id).first_or_initialize
         post_tag_relation.update(post_id: @post.id, tag_id: post_tag.id)
       end
-
-      
-
     end
   end
   

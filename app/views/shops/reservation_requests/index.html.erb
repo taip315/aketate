@@ -1,17 +1,39 @@
+
 <%= render partial: "shared/header" %>
 <div class = "header-back"></div>
 <div class = "main">
-    <div class = "main-wrapper">
-      <div>
-        <% @reservation_requests.each do |request| %>
-          <%= request.user[:last_name] %><%= request.user[:first_name] %>
-          <%= request.start_time.mon %>月<%= request.start_time.mday %>日
-          <%= request.start_time.hour %>時<%= request.start_time.min %>分
-          <%= request.number_of_people %>人
-          <%= link_to "承認する", shops_shop_reserve_allow_path(current_shop.id,request.id), method: :post %>
-          <%= link_to "拒否する", shops_shop_reservation_request_path(current_shop.id,request.id), method: :delete%></br>
+  <div class = "main-wrapper">
+    <% if @reservation_requests.exists? %>
+      <div class = "shop-following-wrapper">
+        <h1>予約リクエスト一覧</h1>
+        <% @reservation_requests.each do |request|  %>
+          <div class = "shops">
+            <%# リンク先を予約リクエスト詳細に変更 %>
+            <a href = "/shops/users/<%=request.user[:id]%>" ></a>
+            <div class = "user-icon">
+              <% if request.user.image.attached? %>
+                <%= image_tag request.user.image.variant(resize: '80') %>
+              <%else%>
+                <%= image_tag('no_image.jpeg',size: '80')%>
+              <% end %>
+            </div>
+            <div class = "shop-content">
+              <div class = "shop-info-search">
+                <h1 class = "shop-name-search"><%= request.user.nickname%></h1>              
+              </div>
+            <div class = "follow-button-area">
+              <%= link_to "承認する", shops_shop_reserve_allow_path(current_shop.id,request.id), method: :post, class: "follow-button" %>
+              <%= link_to "拒否する", shops_shop_reservation_request_path(current_shop.id,request.id), method: :delete, class: "follow-button"%>  
+            </div>
+          </div>
         <% end %>
       </div>
-    </div>
+    <% else %>
+      <div class = "done-message">
+        <h1>現在予約リクエストはありません</h1>
+        <%= link_to "トップに戻る", root_path%>
+      </div>
+    <% end %>
+  </div>
 </div>
 <%= render partial: "shared/footer" %>

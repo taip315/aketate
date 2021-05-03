@@ -1,7 +1,8 @@
 <%= render partial: "shared/header" %>
 <div class = "header-back"></div>
 <div class = "main-wrapper">
-<div>
+<div class = "new-post-form-area">
+  <h1>新規投稿</h1>
   <%= render partial: "shared/error_messages", locals:{model: @post_tag}%>
   <%= render partial: "shared/post_form", locals:{ post_tag: @post_tag}%>
 </div>

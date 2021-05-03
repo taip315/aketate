@@ -1,6 +1,7 @@
 class Users::MembershipsController < ApplicationController
   def index
-    @memberships = current_user.memberships.all
+    user = User.find(current_user.id)
+    @shops = user.shops
   end
   
   def destroy

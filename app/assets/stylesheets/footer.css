@@ -4,7 +4,7 @@
   /* height: 150px; */
   /* bottom: 0; */
   width: 100vw;
-  padding: 70px 0 20px 0;
+  padding: 30px 0 20px 0;
   text-align: center;
   text-decoration: none;
 }
@@ -16,11 +16,24 @@
   
 }
 
+
+.footer-content{
+  display: flex;
+}
+
+.footer-right,.footer-left{
+  margin: 0 40px;
+}
+
 .aketate-details{
   margin: 0 4vw;
 }
 .aketate-details ul{
 list-style: none;
+}
+
+.aketate-details h2{
+  padding-top: 5px;
 }
 
 .footer-content-head {

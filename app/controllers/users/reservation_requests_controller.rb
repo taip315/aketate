@@ -10,10 +10,13 @@ class Users::ReservationRequestsController < ApplicationController
     @request = ReservationRequest.new(reservation_request_params)
     if @request.valid?
       @request.save
-      redirect_to root_path
+      redirect_to done_users_shop_reservation_requests_path(@shop.id)
     else
       render 'new'
     end
+  end
+
+  def done
   end
 
 

@@ -15,19 +15,21 @@ function abcd(value) {
 </script>
 
 <%= render partial: "shared/header" %>
-<%= render partial: "shared/search-form", locals:{ q: @q} %>
+<%= render partial: "shared/search-form", locals:{ q: @q, tags: @tags} %>
 <div class = "main">
   <div class = "main-content">
     <div class = "main-wrapper">
       <div class = "post-wrapper">
 
         <div class = "post-header">
-          <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
-            <option value="A">開けたて順</option>
-            <option value="B">今日のおすすめ順</option>
-          </select>
+          <div class="selectdiv"> 
+            <select name = "myselectbox" id="myselectbox" onchange = "abcd(this.value)" >
+              <option value="A">開けたて順</option>
+              <option value="B">今日のおすすめ順</option>
+            </select>
+          </div>
         </div>
-        <%= render partial: "shared/users_post_index", locals:{ posts: @posts, posts_open_date: @posts_open_date}%>
+        <%= render partial: "shared/users_post_index", locals:{ posts: @posts_without_soldout, posts_open_date: @posts_open_date}%>
       </div>
     </div>
   </div>

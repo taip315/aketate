@@ -18,6 +18,33 @@
   margin: 20px;
   padding: 10px;
   position: relative;
+  max-width: 350px;
+  text-align: center;
+  background-color: #FF7851;
+  font-size: 16px;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 20px;
+  border: none;
+  outline: none;  
+  margin: 0 10px;
+}
+
+.follow-btn{
+  display: inline-block;
+  max-width: 350px;
+  text-align: center;
+  background-color: #FF7851;
+  font-size: 16px;
+  color: #FFF;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 20px;
+  border: none;
+  outline: none;  
+  margin: 0 10px;
 }
 
 .shop-name-search{
@@ -38,3 +65,4 @@
   padding: 10px 0;
   margin-top: 10px;
 }
+

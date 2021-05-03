@@ -1,76 +1,81 @@
-<h2>Sign up</h2>
+<%= render partial: "shared/header" %>
+<div class = "main">
+  <div class = "login-main-wrapper">
+    <div class = "login-form">
+      <h1>ユーザー新規登録</h1>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "users/shared/error_messages", resource: resource %>
-  <div class = "field">
-    <%= f.label :image, '画像' %>
-    <%= f.file_field :image %>
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <%= render "users/shared/error_messages", resource: resource %>
+        
+        <div class="field">
+          <%= f.label :nickname %><br />
+          <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" ,placeholder: "ワイン太郎"%>
+        </div>
+        
+        <div class="field">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, autocomplete: "email" ,placeholder: "abc@gmail.com"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> 文字以上で入力してください)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "new-password",placeholder: "abc123" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "abc123" %>
+        </div>
+
+        <div class="field">
+          <%= f.label :"名字" %><br />
+          <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name" ,placeholder: "山田"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :"名前" %><br />
+          <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name", placeholder: "太郎"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :"フリガナ（名字）" %><br />
+          <%= f.text_field :last_kana, autofocus: true, autocomplete: "on", placeholder: "ヤマダ"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :"フリガナ（名前）" %><br />
+          <%= f.text_field :first_kana, autofocus: true, autocomplete: "on", placeholder: "タロウ"%>
+        </div>
+
+        <div class="field">
+          <%= f.label :"誕生日"%><br />
+          <%= f.date_select :birthday, start_year: 1930, end_year: 2021 , include_blank: "--" , use_month_numbers: true %>
+        </div>
+
+        <div class="field">
+          <%= f.label :"性別" %><br />
+          <%= f.collection_select :gender_id, Gender.all, :id, :name, {include_blank: "選択してください", selected:"選択してください"} %>
+        </div>
+
+        <div class="field">
+          <%= f.label :"電話番号（任意）" %><br />
+          <%= f.telephone_field :phone_number , maxlength: "13", placeholder: "090-0909-0909"%>
+        </div>
+
+        <div class = "field">
+          <%= f.label :image, 'プロフィール画像' %><br />
+          <%= f.file_field :image %>
+        </div>
+
+        <div class="actions">
+          <%= f.submit "登録する" %>
+        </div>
+      <% end %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.label :nickname %><br />
-    <%= f.text_field :nickname, autofocus: true, autocomplete: "nickname" %>
+  <div class="sign-up-footer">
   </div>
-  
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"名字" %><br />
-    <%= f.text_field :last_name, autofocus: true, autocomplete: "family-name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"名前" %><br />
-    <%= f.text_field :first_name, autofocus: true, autocomplete: "given-name" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"フリガナ（名字）" %><br />
-    <%= f.text_field :last_kana, autofocus: true, autocomplete: "on" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"フリガナ（名前）" %><br />
-    <%= f.text_field :first_kana, autofocus: true, autocomplete: "on" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"誕生日"%><br />
-    <%= f.date_select :birthday, start_year: 1930, end_year: 2021 , include_blank: "--" , use_month_numbers: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :"性別" %><br />
-    <%= f.collection_select :gender_id, Gender.all, :id, :name, {include_blank: "選択してください", selected:"選択してください"} %>
-  </div>
-
-<div class="field">
-    <%= f.label :"電話番号（任意）" %><br />
-    <%= f.telephone_field :phone_number , maxlength: "13"%>
-  </div>
-
-  
-
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+</div>

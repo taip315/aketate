@@ -2,18 +2,21 @@ class Users::PostsController < ApplicationController
   skip_before_action :authenticate_any!, only: [:top,:search]
   before_action :redirect_to_toppage, only: :top
   before_action :set_q, only: [:search,:top,:index]
-  
+  before_action :set_tags, only:[:search,:top,:index]
+
   def index
     @user = User.find(current_user.id)
     @following_shops = @user.shops
 
     if (params.has_key?(:follow) == false) || (params[:follow] == "off")
-      @posts = Post.includes(:shop)
+      posts = Post.includes(:shop)
+      
     else params[:follow] == "on"
-      @posts = Post.includes(:shop).where(shop_id: @following_shops).order(created_at: "DESC")
+      posts = Post.includes(:shop).where(shop_id: @following_shops).order(created_at: "DESC")
     end
-
-    @posts_open_date = @posts.order("open_date DESC")
+    @posts_open_date = posts.order("open_date DESC")
+    @posts_without_soldout = posts.where.not(sold_out: true)
+    
   end
 
   def show
@@ -22,8 +25,9 @@ class Users::PostsController < ApplicationController
   
   
   def top
-    @posts = Post.includes(:shop)
+    posts = Post.includes(:shop)
     @posts_open_date = Post.includes(:shop).order("open_date DESC")
+    @posts_without_soldout = posts.where.not(sold_out: true)
   end
 
   def search
@@ -67,6 +71,10 @@ class Users::PostsController < ApplicationController
 
   def set_q
     @q = Post.ransack(params[:q])
+  end
+
+  def set_tags
+    @tags = Tag.all
   end
 end
 
