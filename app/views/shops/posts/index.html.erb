@@ -4,16 +4,21 @@
   
   <div class = "main-content"> 
     <div class = "main-wrapper">
-      <div class = "post-wrapper">
-        <div class = "post-header">
-          <h1><%= current_shop.shop_name%>の投稿一覧</h1>
+      <% if @posts.exists? %>
+        <div class = "post-wrapper">
+          <div class = "post-header">
+            <h1><%= current_shop.shop_name%>の投稿一覧</h1>
+          </div>
+          <%= render partial: "shared/shops_post_index", locals:{ posts: @posts}%>
         </div>
-        
-         <%= render partial: "shared/shops_post_index", locals:{ posts: @posts}%>
+      <% else %>
+      <div class = "done-message">
+        <h1>現在<%= current_shop.shop_name %>の投稿はありません</h1>
+        <%= link_to "新規投稿をする", new_shops_post_path%>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
  <%= render partial: "shared/footer" %>
 
- 

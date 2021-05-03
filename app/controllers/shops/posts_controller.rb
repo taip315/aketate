@@ -7,8 +7,7 @@ class Shops::PostsController < ApplicationController
     if user_signed_in?
       redirect_to users_posts_path
     end
-  
-    @posts = Post.includes(:shop).order("open_date DESC")
+    @posts = Post.where(shop_id: current_shop.id).order("open_date DESC")
   end
 
   def new

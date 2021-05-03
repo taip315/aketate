@@ -2,6 +2,7 @@
 <div class = "header-back"></div>
 <div class = "main">
   <div class = "main-wrapper">
+    <% if @followers.exists? %>
       <div class = "shop-following-wrapper">
         <h1>フォロワー一覧</h1>
         <% @followers.each do |follower|  %>
@@ -25,6 +26,12 @@
         </div>
         <% end %>
       </div>
+    <% else %>
+     <div class = "done-message">
+        <h1>現在フォロワーはいません</h1>
+        <%= link_to "トップに戻る", root_path%>
+      </div>
+    <% end %>
     </div>
 </div>
 <%= render partial: "shared/footer" %>
