@@ -46,6 +46,7 @@ class Shops::PostsController < ApplicationController
     @post = Post.find(params[:id])
     redirect_to root_path if @post.destroy
   end
+  
   def show
     
   end
