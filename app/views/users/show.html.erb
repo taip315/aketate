@@ -1,30 +1,50 @@
 <%= render partial: "shared/header" %>
+<div class = "header-back"></div>
+<div class = "main">
 <div class = "main-wrapper">
-  <div class = "user-information-area">
-    <div class = "user-icon-show">
-          <%= image_tag @user.image.variant(resize: '240x256') if @user.image.attached? %>
+  <div class = "post-area">
+    <div class = "post-area-left">
+    </div>
+    <div class = "post-area-center">
+      <h1>ユーザープロフィール</h1>
+      <div class = "post-area-center-content">
+        <div class = "post-area-center-content-header">
         </div>
-    <div class = "user-data">
-      <h3>ニックネーム</h3>
-      <p><%= @user.nickname%></p>
-      <br>
-      <% if @user.id == current_user.id %>
-      <h3>名前</h3>
-      <p><%= @user.last_name %> <%= @user.first_name %></p>
-      <br>
-      <h3>メールアドレス</h3>
-      <p><%= @user.email %></p>
-      <br>
-      <h3>電話番号</h3>
-      <p><%= @user.phone_number %></p>
-      <br>
-      <h3>性別</h3>
-      <p><%= @user.gender[:name]%></p>
-      <br>
-      <h3>生年月日</h3>
-      <p><%= @user.birthday %></p>
-      <% end %>
+        <div class = "post-image">
+          <%if @user.image.attached?%>
+          <%= image_tag @user.image.variant(resize: '240x256') %>
+          <%else%>
+          <%= image_tag('no_image.jpeg',size: '240x256')%>
+          <%end%>
+        </div>
+        <div class="post-contents-wrapper">
+          <div class = "post-contents">
+            <h3>ニックネーム</h3>
+            <p><%= @user.nickname %></p>
+            <br>
+            <h3>名前</h3>
+            <p><%= @user.last_name %> <%= @user.first_name %></p>
+            <br>
+
+            <h3>メールアドレス</h3>
+            <p><%= @user.email %></p>
+            <br>
+            <h3>電話番号</h3>
+            <p><%= @user.phone_number %></p>
+            <br>
+            <h3>性別</h3>
+            <p><%= @user.gender[:name]%></p>
+            <br>
+            <h3>生年月日</h3>
+            <p><%= @user.birthday %></p>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    <div class = "post-area-right">
     </div>
   </div>
 </div>
-  <%= render partial: "shared/footer" %>
+</div>
+<%= render partial: "shared/footer" %>
