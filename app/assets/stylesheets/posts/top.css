@@ -1,6 +1,7 @@
 .post-search-form{
   padding: 20px 0;
-  height: 500px;
+  height: auto;
+  max-height: 700px;
   background-size: contain;
 }
 
@@ -10,8 +11,9 @@
   text-align: center;
   color: azure;
   font-size: 50px;
-  padding: 100px;
+  padding: 100px 100px 50px 100px;
   margin-top: 100px;
+  
 }
 
 .post-search-form form{
@@ -21,17 +23,26 @@
 }
 
 .tag-area{
-  height: 100px;
-  width: 50%;
+  height: auto;
+  width: 100%;
   margin: 0 auto;
+}
 
-
+.tag-area>h3{
+  color: white;
+  background-color: black;
+  width: 50%;
+  margin: auto;
 }
 
 .tag-area button{
-  margin:0;/*余計な隙間を除く*/
-  font-size: 20px;/*文字サイズ*/
-  border: solid white 2px; /*線で囲う*/
-  padding: 7px;/*文字と線の間の余白*/
-  color: white;/*文字色*/
+  margin:2px;
+  font-size: 20px;
+  border: solid white 2px; 
+  padding: 7px;
+  color: white;
+  background-color: gray;
+}
+
+.tag-search-field{
 }
