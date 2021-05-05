@@ -26,12 +26,12 @@ class Shops::PostsController < ApplicationController
   end
 
   def edit
-    @post = Post.find(params[:id])
+    get_post
     @post_tag = PostsTag.new(post: @post)
   end
 
   def update
-    @post = Post.find(params[:id])
+    get_post
     @post_tag = PostsTag.new(post_params,post: @post)
     tag_list = params[:post][:name].split(',')
     if @post_tag.valid?
