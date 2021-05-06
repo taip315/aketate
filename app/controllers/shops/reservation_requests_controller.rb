@@ -1,12 +1,11 @@
 class Shops::ReservationRequestsController < ApplicationController
-
   def index
     @reservation_requests = ReservationRequest.where(shop_id: current_shop.id)
   end
 
   def reserve_allow
     request = ReservationRequest.find(params[:id])
-    Reservation.create( 
+    Reservation.create(
       start_time: request.start_time,
       number_of_people: request.number_of_people,
       remarks: request.remarks,
@@ -26,6 +25,4 @@ class Shops::ReservationRequestsController < ApplicationController
   def show
     @reservation_request = ReservationRequest.find(params[:id])
   end
-
-
 end

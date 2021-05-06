@@ -1,13 +1,11 @@
 class Shops::PostsController < ApplicationController
   # skip_before_action :authenticate_any!, only: [:show]
-  before_action :get_post, only:[:show,:destroy]
-  before_action :ensure_correct_shop, only:[:show,:edit,:update,:destroy]
+  before_action :get_post, only: %i[show destroy]
+  before_action :ensure_correct_shop, only: %i[show edit update destroy]
 
   def index
-    if user_signed_in?
-      redirect_to users_posts_path
-    end
-    @posts = Post.where(shop_id: current_shop.id).order("open_date DESC")
+    redirect_to users_posts_path if user_signed_in?
+    @posts = Post.where(shop_id: current_shop.id).order('open_date DESC')
   end
 
   def new
@@ -17,7 +15,7 @@ class Shops::PostsController < ApplicationController
   def create
     @post_tag = PostsTag.new(post_params)
     tag_list = params[:post][:name].split(',')
-    if @post_tag.valid? 
+    if @post_tag.valid?
       @post_tag.save(tag_list)
       redirect_to done_shops_posts_path
     else
@@ -32,7 +30,7 @@ class Shops::PostsController < ApplicationController
 
   def update
     get_post
-    @post_tag = PostsTag.new(post_params,post: @post)
+    @post_tag = PostsTag.new(post_params, post: @post)
     tag_list = params[:post][:name].split(',')
     if @post_tag.valid?
       @post_tag.save(tag_list)
@@ -46,14 +44,14 @@ class Shops::PostsController < ApplicationController
     @post = Post.find(params[:id])
     redirect_to root_path if @post.destroy
   end
-  
-  def show
-    
-  end
+
+  def show; end
 
   private
+
   def post_params
-  params.require(:post).permit(:wine_name,:vintage,:content,:price, :open_date, :wine_genre_id, :name, :sold_out, :image).merge(shop_id: current_shop.id )
+    params.require(:post).permit(:wine_name, :vintage, :content, :price, :open_date, :wine_genre_id, :name, :sold_out,
+                                 :image).merge(shop_id: current_shop.id)
   end
 
   def get_post
@@ -64,9 +62,8 @@ class Shops::PostsController < ApplicationController
     @post = Post.find(params[:id])
     if user_signed_in?
       true
-    elsif  current_shop.id != @post.shop_id 
-        redirect_to root_path
+    elsif current_shop.id != @post.shop_id
+      redirect_to root_path
     end
   end
-
 end

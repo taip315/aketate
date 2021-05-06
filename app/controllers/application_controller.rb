@@ -11,14 +11,11 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def authenticate_any!
-    unless shop_signed_in?
-      authenticate_user!
-    end
+    authenticate_user! unless shop_signed_in?
   end
-  
-  
-  
+
   protected
 
   def devise_parameter_sanitizer
@@ -31,6 +28,3 @@ class ApplicationController < ActionController::Base
     end
   end
 end
-
-
-

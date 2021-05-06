@@ -1,10 +1,9 @@
 class PostsTag
-
   include ActiveModel::Model
-  attr_accessor :image, :wine_name,:vintage, :content,:price, :open_date, :wine_genre_id, :name, :shop_id, :sold_out
-  
-  validates :image, presence: {message: "を選択してください"}
-  with_options presence: true do 
+  attr_accessor :image, :wine_name, :vintage, :content, :price, :open_date, :wine_genre_id, :name, :shop_id, :sold_out
+
+  validates :image, presence: { message: 'を選択してください' }
+  with_options presence: true do
     validates :wine_name
     validates :content
     validates :price, numericality: true
@@ -14,20 +13,19 @@ class PostsTag
     validates :sold_out
   end
   validates :vintage, numericality: true
-  
 
   delegate :persisted?, to: :post
 
   def initialize(attributes = nil, post: Post.new)
     @post = post
     attributes ||= default_attributes
-    super(attributes) 
+    super(attributes)
   end
 
   def save(tag_list)
-
     ActiveRecord::Base.transaction do
-      @post.update(image: image, wine_name: wine_name, vintage: vintage,content: content,price: price, open_date: open_date, wine_genre_id: wine_genre_id, shop_id: shop_id, sold_out: sold_out)
+      @post.update(image: image, wine_name: wine_name, vintage: vintage, content: content, price: price,
+                   open_date: open_date, wine_genre_id: wine_genre_id, shop_id: shop_id, sold_out: sold_out)
 
       current_tags = @post.tags.pluck(:name) unless @post.tags.nil?
       old_tags = current_tags - tag_list
@@ -45,11 +43,10 @@ class PostsTag
       end
     end
   end
-  
+
   def to_model
     post
   end
-
 
   private
 
@@ -69,7 +66,4 @@ class PostsTag
       name: post.tags.pluck(:name).join(',')
     }
   end
-
-
 end
-

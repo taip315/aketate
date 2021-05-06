@@ -5,7 +5,7 @@ class CreateFollowRequests < ActiveRecord::Migration[6.0]
       t.references :shop, null: false, foreign_key: false
       t.timestamps
 
-      t.index [:user_id, :shop_id], unique: true
+      t.index %i[user_id shop_id], unique: true
     end
   end
 end

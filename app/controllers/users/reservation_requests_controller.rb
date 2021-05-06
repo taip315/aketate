@@ -1,5 +1,4 @@
 class Users::ReservationRequestsController < ApplicationController
-
   def new
     @shop = Shop.find(params[:shop_id])
     @request = ReservationRequest.new(shop_id: params[:shop_id])
@@ -16,12 +15,13 @@ class Users::ReservationRequestsController < ApplicationController
     end
   end
 
-  def done
-  end
-
+  def done; end
 
   private
+
   def reservation_request_params
-    params.require(:reservation_request).permit(:date, :start_time, :number_of_people, :remarks).merge(user_id: current_user.id, shop_id: params[:shop_id])
+    params.require(:reservation_request).permit(:date, :start_time, :number_of_people, :remarks).merge(
+      user_id: current_user.id, shop_id: params[:shop_id]
+    )
   end
 end

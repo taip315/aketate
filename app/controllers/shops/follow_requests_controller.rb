@@ -15,7 +15,6 @@ class Shops::FollowRequestsController < ApplicationController
     follow_request.destroy
     redirect_back(fallback_location: shops_shop_follow_requests_path(current_shop.id))
   end
-  
 
   private
 
