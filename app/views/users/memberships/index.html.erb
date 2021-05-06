@@ -2,6 +2,7 @@
 <div class = "header-back"></div>
 <div class = "main">
     <div class = "main-wrapper">
+      <% if @shops.exists? %>
       <div class = "shop-following-wrapper">
         <h1>フォロー中のshop一覧</h1>
         <% @shops.each do |shop|  %>
@@ -19,12 +20,18 @@
               <h1 class = "shop-name-search"><%= shop.shop_name%></h1>              
             </div>
            <div class = "follow-button-area">
-              <%= link_to "フォローを取消", users_user_memberships_path(shop.id, Membership.find_by(user_id: current_user.id, shop_id:shop.id).id), method: :delete, class: "follow-button" %>
+              <%= link_to "フォローを取消", users_user_membership_path(shop.id, Membership.find_by(user_id: current_user.id, shop_id:shop.id).id), method: :delete, class: "follow-button" %>
             </div>
           </div>
         </div>
         <% end %>
       </div>
+      <% else %>
+        <div class = "done-message">
+          <h1>フォロー中のショップはありません</h1>
+         <%= link_to "トップに戻る", root_path%>
+        </div>
+      <% end %>
     </div>
 </div>
 <%= render partial: "shared/footer" %>

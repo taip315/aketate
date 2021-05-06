@@ -4,18 +4,17 @@ class Shop < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  with_options presence: true do 
+  with_options presence: true do
     validates :shop_name
-    validates :administrator, format: {with: /\A[ぁ-んァ-ン一-龥]+\z/, message: "は全角（漢字、ひらがな、カタカナ）での入力が必要です" }
-    validates :postal, format: {with: /\A\d{3}-\d{4}\z/, message: "はハイフンを含む7桁の半角数字での入力が必要です"}
-    validates :prefecture_id, format: {with: /\A\d{1,2}\z/ }
+    validates :administrator, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'は全角（漢字、ひらがな、カタカナ）での入力が必要です' }
+    validates :postal, format: { with: /\A\d{3}-\d{4}\z/, message: 'はハイフンを含む7桁の半角数字での入力が必要です' }
+    validates :prefecture_id, format: { with: /\A\d{1,2}\z/ }
     validates :address
-    validates :nearest_station, format: {with: /\A[ぁ-んァ-ン一-龥]+\z/, message: "は全角（漢字、ひらがな、カタカナ）での入力が必要です"}
-    validates :genre_id,format: {with: /\A\d{1,2}\z/ }
-    validates :phone_number,format: {with: /\A\d{2,4}-\d{2,4}-\d{4}\z/}
+    validates :nearest_station, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/, message: 'は全角（漢字、ひらがな、カタカナ）での入力が必要です' }
+    validates :genre_id, format: { with: /\A\d{1,2}\z/ }
+    validates :phone_number, format: { with: /\A\d{2,4}-\d{2,4}-\d{4}\z/ }
   end
-  validates :building, format: {with: /\A[ぁ-んァ-ン一-龥]+\z/, message: "は全角（漢字、ひらがな、カタカナ）での入力が必要です" }
-  validates :password,format: {with: /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i, message: "は英字と数字の両方を含めての入力が必要です"}
+  validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: 'は英字と数字の両方を含めての入力が必要です' }
 
   has_many :rooms
   has_many :memberships, dependent: :destroy
@@ -25,10 +24,8 @@ class Shop < ApplicationRecord
   has_many :reservations
   has_many :reservation_requests
   has_one_attached :image
-  
+
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
   belongs_to :genre
-  
-  
 end

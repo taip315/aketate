@@ -9,7 +9,12 @@
 }
 
 .reservation-table{
-  margin: 100px;
+  margin: auto;
   width: 60%;
- 
+
+}
+
+.reservation-show-area{
+  width: 100%;
+  text-align: center;
 }

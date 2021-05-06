@@ -12,6 +12,7 @@ class Users::FollowRequestsController < ApplicationController
   end
 
   private
+
   def follow_request_params
     params.permit(:shop_id).merge(user_id: current_user.id)
   end

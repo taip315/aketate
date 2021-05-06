@@ -1,26 +1,26 @@
 Rails.application.routes.draw do
-  devise_for :shops, controllers:{
-    sessions:       'shops/sessions',
-    passwords:      'shops/passwords',
-    registrations:  'shops/registrations'
+  devise_for :shops, controllers: {
+    sessions: 'shops/sessions',
+    passwords: 'shops/passwords',
+    registrations: 'shops/registrations'
   }
   devise_for :users, controllers: {
-    sessions:       'users/sessions',
-    passwords:      'users/passwords',
-    registrations:  'users/registrations'
+    sessions: 'users/sessions',
+    passwords: 'users/passwords',
+    registrations: 'users/registrations'
   }
 
-  root to: "users/posts#top"
-  
+  root to: 'users/posts#top'
+
   namespace :users do
     resources :users do
-      resources :memberships, only:[:index,:destroy]
+      resources :memberships, only: %i[index destroy]
     end
     resources :shops do
       collection do
         get :search
       end
-      resources :follow_requests, only: [:create, :destroy] do
+      resources :follow_requests, only: %i[create destroy] do
         collection do
           get 'done'
         end
@@ -55,15 +55,15 @@ Rails.application.routes.draw do
         end
       end
       post '/reservation_requests/:id' => 'reservation_requests#reserve_allow', as: 'reserve_allow'
-      resources :reservation_requests do 
+      resources :reservation_requests do
         collection do
           get 'done'
         end
-      end 
+      end
     end
-    resources :users, only:[:index,:show]
+    resources :users, only: %i[index show]
     resources :reservations
   end
-  resources :messages, only:[:new]
+  resources :messages, only: [:new]
   resources :users
 end

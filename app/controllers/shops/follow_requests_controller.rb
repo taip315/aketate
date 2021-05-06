@@ -1,6 +1,6 @@
 class Shops::FollowRequestsController < ApplicationController
   def index
-    @follow_requests = current_shop.follow_requests.all
+    @follow_requests = FollowRequest.where(shop_id: current_shop.id)
   end
 
   def allow
@@ -15,7 +15,6 @@ class Shops::FollowRequestsController < ApplicationController
     follow_request.destroy
     redirect_back(fallback_location: shops_shop_follow_requests_path(current_shop.id))
   end
-  
 
   private
 

@@ -1,0 +1,35 @@
+
+<%= render partial: "shared/header" %>
+<div class = "header-back"></div>
+<div class = "main">
+<div class = "main-wrapper">
+  <div class = "post-area">
+    <div class = "reservation-show-area">
+    <table class = "reservation-table">
+        <tr>
+          <th>予約日時</th><td><%= @reservation_request.start_time.month %>月<%= @reservation_request.start_time.day %>日</td>
+        </tr>
+        <tr>
+          <th>時刻</th><td><%= @reservation_request.start_time.hour %>時<%= @reservation_request.start_time.min %>分</td>
+        </tr>
+        <tr>
+          <th>名前</th><td><%= @reservation_request.user[:last_name] %><%= @reservation_request.user[:first_name] %>様</td>
+        </tr>
+        <tr>
+          <th>人数</th><td><%= @reservation_request.number_of_people %>名</td>
+          
+        </tr>
+        <tr>
+          <th>備考</th> <td><%= @reservation_request.remarks %></td>
+        </tr>
+      </table>
+     <div class = "follow-button-area">
+        <%= link_to "承認する", shops_shop_reserve_allow_path(current_shop.id,@reservation_request.id), method: :post, class: "follow-btn" %>
+        <%= link_to "拒否する", shops_shop_reservation_request_path(current_shop.id,@reservation_request.id), method: :delete, class: "follow-btn"%>  
+      </div>
+    </div>
+    
+  </div>
+</div>
+</div>
+<%= render partial: "shared/footer" %>

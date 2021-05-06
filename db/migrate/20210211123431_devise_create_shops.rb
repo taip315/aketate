@@ -4,16 +4,16 @@ class DeviseCreateShops < ActiveRecord::Migration[6.0]
   def change
     create_table :shops do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
-      t.string :shop_name         , null: false
-      t.string :administrator     , null: false
-      t.string :postal           , null: false
-      t.integer :prefecture_id    , null: false
-      t.string :address           , null: false
-      t.string  :building
-      t.string :nearest_station   , null: false
-      t.integer :genre_id         , null: false
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
+      t.string :shop_name, null: false
+      t.string :administrator, null: false
+      t.string :postal, null: false
+      t.integer :prefecture_id, null: false
+      t.string :address, null: false
+      t.string :building
+      t.string :nearest_station, null: false
+      t.integer :genre_id, null: false
       t.string :phone_number
 
       ## Recoverable
@@ -40,7 +40,6 @@ class DeviseCreateShops < ActiveRecord::Migration[6.0]
       # t.integer  :failed_attempts, default: 0, null: false # Only if lock strategy is :failed_attempts
       # t.string   :unlock_token # Only if unlock strategy is :email or :both
       # t.datetime :locked_at
-
 
       t.timestamps null: false
     end
