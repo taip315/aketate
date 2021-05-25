@@ -10,7 +10,7 @@
           <a href = "/users/shops/<%=shop.id%>" ></a>
           <div class = "user-icon">
           <% if shop.image.attached? %>
-          <%= image_tag post.image.variant(resize: '80') %>
+          <%= image_tag shop.image.variant(resize: '80') %>
           <%else%>
           <%= image_tag('no_image.jpeg',size: '80')%>
           <% end %>
