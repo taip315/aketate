@@ -68,3 +68,4 @@ gem 'rails-i18n'
 gem 'ransack'
 gem 'simple_calendar', '~> 2.0'
 gem 'unicorn'
+gem "aws-sdk-s3", require: false
