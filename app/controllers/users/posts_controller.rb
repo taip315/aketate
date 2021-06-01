@@ -15,8 +15,8 @@ class Users::PostsController < ApplicationController
       params[:follow] == 'on'
       posts = Post.includes(:shop).where(shop_id: @following_shops).order(created_at: 'DESC')
     end
-    @posts_open_date = posts.order('open_date DESC')
-    @posts_without_soldout = posts.where.not(sold_out: true)
+    @posts_open_date = posts.order('open_date DESC').with_attached_image
+    @posts_without_soldout = posts.where.not(sold_out: true).with_attached_image
   end
 
   def show
@@ -25,14 +25,14 @@ class Users::PostsController < ApplicationController
 
   def top
     posts = Post.includes(:shop)
-    @posts_open_date = Post.includes(:shop).order('open_date DESC')
-    @posts_without_soldout = posts.where.not(sold_out: true)
+    @posts_open_date = Post.includes(:shop).order('open_date DESC').with_attached_image
+    @posts_without_soldout = posts.where.not(sold_out: true).with_attached_image
   end
 
   def search
     keywords = params[:q][:tags_name_cont_all].split(/[[:blank:]]+/)
 
-    @posts = Post.has_tag_name_all(keywords)
+    @posts = Post.has_tag_name_all(keywords).with_attached_image
 
     # @posts = Post.includes(:shop)
     # keywords.each do |keyword|
